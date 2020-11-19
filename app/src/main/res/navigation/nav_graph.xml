@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/calendarFragment">
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.healthtrackerpraksa.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/temperatureFragment"
+        android:name="com.example.healthtrackerpraksa.TemperatureFragment"
+        android:label="fragment_temperature"
+        tools:layout="@layout/fragment_temperature" />
+    <fragment
+        android:id="@+id/bloodPressureFragment"
+        android:name="com.example.healthtrackerpraksa.BloodPressure"
+        android:label="fragment_blood_pressure"
+        tools:layout="@layout/fragment_blood_pressure" />
+    <fragment
+        android:id="@+id/bloodSugarFragment"
+        android:name="com.example.healthtrackerpraksa.BloodSugarFragment"
+        android:label="fragment_blood_sugar"
+        tools:layout="@layout/fragment_blood_sugar" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.healthtrackerpraksa.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

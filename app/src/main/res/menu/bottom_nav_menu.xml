@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/temperatureFragment"
+        android:icon="@drawable/footer_temperature"
+        android:title="Temperature"/>
+    <item
+        android:id="@+id/bloodPressureFragment"
+        android:icon="@drawable/footer_blood_pressure"
+        android:title="Blood Pressure"/>
+    <item
+        android:id="@+id/calendarFragment"
+        android:icon="@drawable/footer_calendar"
+        android:title="Calendar"/>
+    <item
+        android:id="@+id/bloodSugarFragment"
+        android:icon="@drawable/footer_blood_sugar"
+        android:title="Blood Sugar"/>
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/footer_settings"
+        android:title="Settings"/>
+</menu>
