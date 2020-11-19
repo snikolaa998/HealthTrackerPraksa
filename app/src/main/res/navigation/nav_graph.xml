@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="com.example.healthtrackerpraksa.CalendarFragment"
+        android:name="com.example.healthtrackerpraksa.ui.fragments.CalendarFragment"
         android:label="fragment_calendar"
         tools:layout="@layout/fragment_calendar" />
     <fragment
         android:id="@+id/temperatureFragment"
-        android:name="com.example.healthtrackerpraksa.TemperatureFragment"
+        android:name="com.example.healthtrackerpraksa.ui.fragments.TemperatureFragment"
         android:label="fragment_temperature"
         tools:layout="@layout/fragment_temperature" />
     <fragment
         android:id="@+id/bloodPressureFragment"
-        android:name="com.example.healthtrackerpraksa.BloodPressure"
+        android:name="com.example.healthtrackerpraksa.ui.fragments.BloodPressure"
         android:label="fragment_blood_pressure"
         tools:layout="@layout/fragment_blood_pressure" />
     <fragment
         android:id="@+id/bloodSugarFragment"
-        android:name="com.example.healthtrackerpraksa.BloodSugarFragment"
+        android:name="com.example.healthtrackerpraksa.ui.fragments.BloodSugarFragment"
         android:label="fragment_blood_sugar"
         tools:layout="@layout/fragment_blood_sugar" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.healthtrackerpraksa.SettingsFragment"
+        android:name="com.example.healthtrackerpraksa.ui.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>
