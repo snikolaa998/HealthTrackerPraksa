@@ -11,6 +11,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.healthtrackerpraksa.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+//Totalno bezveze komentar
+//Totalno bezveze komentar2
 // comment1
 //comment 2
 //comment 3
