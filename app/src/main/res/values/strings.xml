@@ -2,4 +2,13 @@
     <string name="app_name">HealthTrackerPraksa</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_temperature">Add temperature</string>
+    <string name="choose_scale">Choose scale:</string>
+    <string name="fahrenheit_f">Fahrenheit °F</string>
+    <string name="celsius_c">Celsius °C</string>
+    <string name="current_value">Current Value:</string>
+    <string name="time_and_date">Time and Date:</string>
+    <string name="note_input">Note</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>

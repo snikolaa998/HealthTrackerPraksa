@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.healthtrackerpraksa.persistence.model.BloodPressure
-import com.example.healthtrackerpraksa.persistence.model.BloodSugar
-import com.example.healthtrackerpraksa.persistence.model.Temperature
+import com.example.healthtrackerpraksa.model.BloodPressure
+import com.example.healthtrackerpraksa.model.BloodSugar
+import com.example.healthtrackerpraksa.model.Temperature
 
 @Dao
 interface IHealthStatusDao {

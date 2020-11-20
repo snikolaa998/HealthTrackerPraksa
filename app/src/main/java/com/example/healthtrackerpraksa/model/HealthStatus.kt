@@ -1,4 +1,4 @@
-package com.example.healthtrackerpraksa.persistence.model
+package com.example.healthtrackerpraksa.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

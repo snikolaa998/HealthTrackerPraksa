@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.HealthTrackerPraksa" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.HealthTrackerPraksa" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#285DE4</item>
+        <item name="colorPrimaryVariant">#0621A8</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -13,4 +13,29 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="MyCustomTextTheme" parent="Theme.HealthTrackerPraksa">
+
+        <item name="android:layout_marginTop">16dp</item>
+
+    </style>
+
+
+    <style name="MyDialogTheme" parent="Theme.AppCompat.DayNight.Dialog" />
+
+
+
+    <style name="MyDialogTheme2" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="android:background">@color/white</item>
+        <item name="colorPrimary">#285DE4</item>
+        <item name="colorAccent">@color/purple_500</item>
+        <item name="textColorAlertDialogListItem">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:windowEnterAnimation">@android:anim/slide_in_left</item>
+        <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+
+
 </resources>
