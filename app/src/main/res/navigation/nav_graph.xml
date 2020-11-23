@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_temperature" />
     <fragment
         android:id="@+id/bloodPressureFragment"
-        android:name="com.example.healthtrackerpraksa.ui.fragments.BloodPressure"
+        android:name="com.example.healthtrackerpraksa.ui.fragments.BloodPressureFragment"
         android:label="fragment_blood_pressure"
         tools:layout="@layout/fragment_blood_pressure" />
     <fragment
@@ -32,7 +32,7 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/bloodSugarPopupDialogFragment"
-        android:name="com.example.healthtrackerpraksa.ui.inputdialogs.BloodSugarPopupDialogFragment"
+        android:name="com.example.healthtrackerpraksa.ui.inputdialogs.BloodSugarDialog"
         android:label="fragment_blood_sugar_popup_dialog"
-        tools:layout="@layout/fragment_blood_sugar_popup_dialog" />
+        tools:layout="@layout/dialog_blood_sugar" />
 </navigation>

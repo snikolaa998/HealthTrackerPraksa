@@ -1,18 +1,15 @@
 package com.example.healthtrackerpraksa
 
 import android.app.Application
-import com.example.healthtrackerpraksa.persistence.HealthTrackerDb
-import com.example.healthtrackerpraksa.repository.MainRepository
 
 class MyApplication : Application() {
-
-    private val dataBase by lazy {
-        HealthTrackerDb.getDatabase(this)
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
     }
 
-    val repository by lazy {
-        MainRepository(dataBase!!.healthStatusDao())
+    companion object {
+        lateinit var instance: MyApplication
+            private set
     }
-
-
 }

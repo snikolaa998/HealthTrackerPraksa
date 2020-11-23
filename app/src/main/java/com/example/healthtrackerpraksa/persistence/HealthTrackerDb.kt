@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.healthtrackerpraksa.MyApplication
+import com.example.healthtrackerpraksa.model.BloodPressure
 import com.example.healthtrackerpraksa.model.BloodSugar
 import com.example.healthtrackerpraksa.model.Temperature
-import com.example.healthtrackerpraksa.ui.fragments.BloodPressure
+import com.example.healthtrackerpraksa.util.HEALTH_TRACKER_DATABASE_NAME
 
 @Database(
     entities = [BloodPressure::class, BloodSugar::class, Temperature::class],
@@ -14,20 +16,20 @@ import com.example.healthtrackerpraksa.ui.fragments.BloodPressure
 )
 abstract class HealthTrackerDb : RoomDatabase() {
 
-    abstract fun healthStatusDao(): IHealthStatusDao
+    abstract fun healthStatusDao(): HealthTrackerDao
 
     companion object {
         @Volatile
         private var INSTANCE: HealthTrackerDb? = null
 
-        fun getDatabase(context: Context): HealthTrackerDb {
+        fun getDatabase(): HealthTrackerDb {
             if (INSTANCE == null) {
                 synchronized(this) {
                     if (INSTANCE == null) {
                         INSTANCE = Room.databaseBuilder(
-                            context,
+                            MyApplication.instance,
                             HealthTrackerDb::class.java,
-                            "health_tracker_database"
+                            HEALTH_TRACKER_DATABASE_NAME
                         )
                             .build()
 

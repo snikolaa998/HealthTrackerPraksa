@@ -8,14 +8,14 @@ import androidx.fragment.app.DialogFragment
 import com.example.healthtrackerpraksa.R
 
 
-class BloodSugarPopupDialogFragment : DialogFragment() {
+class BloodSugarDialog : DialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_blood_sugar_popup_dialog, container, false)
+        return inflater.inflate(R.layout.dialog_blood_sugar, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
