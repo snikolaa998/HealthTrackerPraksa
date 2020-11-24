@@ -1,13 +1,13 @@
 package com.example.healthtrackerpraksa.persistence
 
 import android.content.Context
-import android.os.health.HealthStats
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.healthtrackerpraksa.persistence.model.BloodPressure
 import com.example.healthtrackerpraksa.persistence.model.BloodSugar
 import com.example.healthtrackerpraksa.persistence.model.Temperature
-import com.example.healthtrackerpraksa.ui.fragments.BloodPressure
+import com.example.healthtrackerpraksa.ui.fragments.BloodPressureFragment
 
 @Database(
     entities = [BloodPressure::class, BloodSugar::class, Temperature::class],
@@ -32,7 +32,6 @@ abstract class HealthTrackerDb() : RoomDatabase() {
                         )
                             .fallbackToDestructiveMigration()
                             .build()
-
                     }
                 }
             }

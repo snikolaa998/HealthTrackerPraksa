@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_temperature" />
     <fragment
         android:id="@+id/bloodPressureFragment"
-        android:name="com.example.healthtrackerpraksa.ui.fragments.BloodPressure"
+        android:name="com.example.healthtrackerpraksa.ui.fragments.BloodPressureFragment"
         android:label="fragment_blood_pressure"
         tools:layout="@layout/fragment_blood_pressure" />
     <fragment

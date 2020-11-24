@@ -13,9 +13,10 @@ data class Temperature(
 
 @Entity(tableName = "blood_pressure_table")
 data class BloodPressure(
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    val value: Int,
-    val measureTime: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    val upperValue: Int,
+    val lowerValue: Int,
+    val measureTime: String,
     val note: String
 )
 
