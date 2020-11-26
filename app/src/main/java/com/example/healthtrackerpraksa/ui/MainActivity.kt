@@ -12,7 +12,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
+import com.example.healthtrackerpraksa.adapters.BloodPressureAdapter
 import com.example.healthtrackerpraksa.interfaces.DataIsReady
 import com.example.healthtrackerpraksa.repository.Repository
 import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModel
@@ -61,13 +64,5 @@ class MainActivity() : AppCompatActivity(), DataIsReady {
         bloodPressureViewModelFactory = BloodPressureViewModelFactory(repo)
         bloodPressureViewModel = ViewModelProvider(this, bloodPressureViewModelFactory).get(BloodPressureViewModel::class.java)
         bloodPressureViewModel.insert(bloodPressure)
-        bloodPressureViewModel.allBloodPressure.observe(this, Observer {
-            val stringBuilder = StringBuilder()
-//            Toast.makeText(this, "Duzina database je: ${it.size}", Toast.LENGTH_SHORT).show()
-            for (data in it) {
-                stringBuilder.append(data.note).append("\n")
-            }
-            Log.d("DUZINA", stringBuilder.toString())
-        })
     }
 }

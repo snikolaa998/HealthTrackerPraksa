@@ -10,17 +10,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
+import com.example.healthtrackerpraksa.adapters.BloodPressureAdapter
+import com.example.healthtrackerpraksa.canvas.BloodPressureCanvas
 import com.example.healthtrackerpraksa.interfaces.DataIsReady
 import com.example.healthtrackerpraksa.persistence.model.BloodPressure
+import com.example.healthtrackerpraksa.repository.Repository
 import com.example.healthtrackerpraksa.ui.BloodPressurePopUp
 import com.example.healthtrackerpraksa.ui.MainActivity
+import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModel
+import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModelFactory
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class BloodPressureFragment : Fragment(){
+class BloodPressureFragment : Fragment() {
+
+    private lateinit var bloodPressureViewModel: BloodPressureViewModel
+    private lateinit var bloodPressureViewModelFactory: BloodPressureViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,13 +41,26 @@ class BloodPressureFragment : Fragment(){
         return inflater.inflate(R.layout.fragment_blood_pressure, container, false)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val recyclerView = view?.findViewById<RecyclerView>(R.id.bloodPressureRecyclerView)
+        val repo = Repository(activity?.application!!)
+        val canvas = view?.findViewById<BloodPressureCanvas>(R.id.canvasPressure)
+        bloodPressureViewModelFactory = BloodPressureViewModelFactory(repo)
+        bloodPressureViewModel = ViewModelProvider(this, bloodPressureViewModelFactory).get(BloodPressureViewModel::class.java)
+        bloodPressureViewModel.allBloodPressure.observe(requireActivity(), androidx.lifecycle.Observer {
+            val adapter = BloodPressureAdapter(it, requireActivity())
+            recyclerView?.adapter = adapter
+            recyclerView?.layoutManager = LinearLayoutManager(activity)
+            canvas?.setParameter(it)
+        })
+
+    }
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onAttach(context: Context) {
         super.onAttach(context)
         val calendar = Calendar.getInstance()
         val dateTime = calendar.time
-        val time = SimpleDateFormat("HH:mm", Locale.getDefault()).format(dateTime)
-        val date = SimpleDateFormat("dd MM", Locale.getDefault()).format(dateTime)
-        Toast.makeText(activity, "Vreme je $time, datum je: $date", Toast.LENGTH_SHORT).show()
     }
 }
