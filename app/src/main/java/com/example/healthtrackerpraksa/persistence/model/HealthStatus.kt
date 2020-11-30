@@ -2,6 +2,7 @@ package com.example.healthtrackerpraksa.persistence.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "temp_table")
 data class Temperature(
@@ -16,7 +17,7 @@ data class BloodPressure(
     @PrimaryKey(autoGenerate = true) var id: Int = 0,
     val upperValue: Int,
     val lowerValue: Int,
-    val measureTime: String,
+    val measureTime: Date,
     val note: String
 )
 

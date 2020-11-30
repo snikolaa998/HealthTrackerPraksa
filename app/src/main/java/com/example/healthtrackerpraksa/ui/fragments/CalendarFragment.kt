@@ -1,34 +1,36 @@
 package com.example.healthtrackerpraksa.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
+import com.example.healthtrackerpraksa.adapters.BloodPressureAdapter
+import com.example.healthtrackerpraksa.adapters.CalendarAdapter
+import com.example.healthtrackerpraksa.repository.Repository
+import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModel
+import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModelFactory
+import java.lang.StringBuilder
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CalendarFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CalendarFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val dayList = ArrayList<Int>()
+    private val dates = ArrayList<Date>()
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var bloodPressureViewModel: BloodPressureViewModel
+    private lateinit var bloodPressureViewModelFactory: BloodPressureViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +40,73 @@ class CalendarFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_calendar, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CalendarFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CalendarFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView = view.findViewById(R.id.recyclerViewCalendar)
+        val repo = Repository(activity?.application!!)
+        var currentMonth = 10
+        val btnNext = view.findViewById<Button>(R.id.btn_next_month)
+        val btnPrevious = view.findViewById<Button>(R.id.btn_previous_month)
+        val showYearMonth = view.findViewById<TextView>(R.id.tv_date_and_year_calendar)
+
+        bloodPressureViewModelFactory = BloodPressureViewModelFactory(repo)
+        bloodPressureViewModel = ViewModelProvider(this, bloodPressureViewModelFactory).get(BloodPressureViewModel::class.java)
+        bloodPressureViewModel.allBloodPressure.observe(requireActivity(), androidx.lifecycle.Observer {
+            for(value in it) {
+                dates.add(value.measureTime)
             }
+
+        })
+
+        btnNext.setOnClickListener {
+            currentMonth += 1
+            dates.clear()
+            dayList.clear()
+            bloodPressureViewModel.allBloodPressure.observe(requireActivity(), androidx.lifecycle.Observer {
+                for(value in it) {
+                    dates.add(value.measureTime)
+                }
+
+            })
+            showCalendar(showYearMonth, currentMonth)
+        }
+
+        btnPrevious.setOnClickListener {
+            currentMonth -= 1
+            dayList.clear()
+            dates.clear()
+            bloodPressureViewModel.allBloodPressure.observe(requireActivity(), androidx.lifecycle.Observer {
+                for(value in it) {
+                    dates.add(value.measureTime)
+                }
+
+            })
+            showCalendar(showYearMonth, currentMonth)
+        }
+
+        showCalendar(showYearMonth, currentMonth)
+    }
+
+    private fun showCalendar(showDateYear: TextView, mCurrentMonth: Int) {
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.DAY_OF_MONTH, 1)
+        calendar.set(Calendar.MONTH, mCurrentMonth)
+        val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+        for (i in 0 until dayOfWeek - 1) {
+            dayList.add(-1)
+        }
+        val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+        for (i in 0 until daysInMonth) {
+            dayList.add(i + 1)
+        }
+        for (i in dayList.size until 42) {
+            dayList.add(-1)
+        }
+        val adapter = CalendarAdapter(dayList, requireActivity(), dates)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = GridLayoutManager(requireActivity(), 7)
+        val simpleDateFormat = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
+        val date = simpleDateFormat.format(calendar.time)
+        showDateYear.text = date.toString()
     }
 }

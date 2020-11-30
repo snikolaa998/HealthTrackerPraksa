@@ -43,7 +43,7 @@ class BloodPressurePopUp(private val listener: DataIsReady) : DialogFragment() {
         upperValue.setText("120")
         lowerValue.setText("80")
         saveButton.setOnClickListener {
-            val data = BloodPressure(upperValue = upperValue.text.toString().toInt(), lowerValue = lowerValue.text.toString().toInt(), measureTime = date.toString(), note = note.text.toString())
+            val data = BloodPressure(upperValue = upperValue.text.toString().toInt(), lowerValue = lowerValue.text.toString().toInt(), measureTime = dateTime, note = note.text.toString())
             listener.dataIsReady(data)
             dismiss()
         }

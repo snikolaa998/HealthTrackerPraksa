@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.persistence.model.BloodPressure
+import java.text.SimpleDateFormat
 
 class BloodPressureHolder(view: View): RecyclerView.ViewHolder(view) {
     val upperValue = view.findViewById<TextView>(R.id.tv_upper_item_blood_pressure)
@@ -30,7 +31,8 @@ class BloodPressureAdapter(private val items: List<BloodPressure>, private val c
         with(holder) {
             upperValue.text = item.upperValue.toString()
             lowerValue.text = item.lowerValue.toString()
-            dateTime.text = item.measureTime
+            val simpleDateFormat = SimpleDateFormat("MMMM dd YYYY")
+            dateTime.text = simpleDateFormat.format(item.measureTime)
         }
     }
 }

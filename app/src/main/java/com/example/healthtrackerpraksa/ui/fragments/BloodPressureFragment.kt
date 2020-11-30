@@ -54,13 +54,5 @@ class BloodPressureFragment : Fragment() {
             recyclerView?.layoutManager = LinearLayoutManager(activity)
             canvas?.setParameter(it)
         })
-
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        val calendar = Calendar.getInstance()
-        val dateTime = calendar.time
     }
 }
