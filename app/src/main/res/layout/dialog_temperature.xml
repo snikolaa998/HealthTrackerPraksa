@@ -76,8 +76,8 @@
                 android:id="@+id/et_temp_value_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
                 android:layout_marginTop="8dp"
+                android:inputType="number"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -91,12 +91,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_temp_value_input" />
 
-            <EditText
-                android:id="@+id/et_time_date_value_input"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_date_value_input"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="22/11/2020"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <EditText
+                android:id="@+id/et_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:hint="temperature"
+                android:inputType="number"
+                android:textSize="24sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_date_value_input"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
@@ -106,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/note_input"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_time_date_value_input" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_date_value_input" />
 
             <EditText
                 android:id="@+id/et_note_value_input"

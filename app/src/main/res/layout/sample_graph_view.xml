@@ -1,0 +1,20 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.example.healthtrackerpraksa.util.uicomponents.GraphView
+        android:layout_width="400dp"
+        android:layout_height="340dp"
+
+        app:bottom_text_size="12"
+        app:graph_line_width="4"
+        app:number_horizontal_lines="7"
+        app:number_vertical_ticks="5"
+        app:scale_to_fit="false"
+
+        app:side_text_size="12"
+        app:title_text="Title"
+        app:title_text_size="25" />
+
+</FrameLayout>

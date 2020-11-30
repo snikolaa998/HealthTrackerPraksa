@@ -7,24 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.TemperatureFragment">
 
-    <ImageView
-        android:id="@+id/iv_mock_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:src="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <com.example.healthtrackerpraksa.util.uicomponents.GraphView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:title_text="Temperature"
+        app:title_text_size="40"
+        app:side_text_size="25"
+        app:bottom_text_size="20"
+        app:number_vertical_ticks="7"
+        app:number_horizontal_lines="8"
+        android:id="@+id/temperature_graph"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_temperature"
         android:layout_width="match_parent"
         android:layout_height="376dp"
-        android:layout_below="@+id/iv_mock_image_view"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_mock_image_view"
+        android:layout_below="@+id/temperature_graph"
+
         tools:listitem="@layout/card_temperature" />
 
 

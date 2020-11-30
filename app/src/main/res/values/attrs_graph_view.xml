@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="GraphView">
+        <attr name="title_text_size" format="float" />
+        <attr name="title_text" format="string" />
+        <attr name="side_text_size" format="float" />
+        <attr name="bottom_text_size" format="float" />
+
+        <attr name="number_horizontal_lines" format="integer" />
+        <attr name="number_vertical_ticks" format="integer" />
+        <attr name="graph_line_width" format="float" />
+        <attr name="scale_to_fit" format="boolean" />
+    </declare-styleable>
+</resources>

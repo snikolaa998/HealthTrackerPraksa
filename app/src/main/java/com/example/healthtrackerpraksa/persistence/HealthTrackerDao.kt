@@ -9,7 +9,7 @@ import com.example.healthtrackerpraksa.model.Temperature
 @Dao
 interface HealthTrackerDao {
 
-    @Query("Select * from temperature_table order by temperatureValue desc")
+    @Query("Select * from temperature_table order by timeWhenMeasured desc")
     fun getAllTemperatures(): LiveData<List<Temperature>>
 //
 //    @Query("Select * from blood_pressure_table")
