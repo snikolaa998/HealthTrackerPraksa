@@ -10,7 +10,7 @@
 
 
 
-    <com.example.healthtrackerpraksa.util.MyCustomCalendarComponent
+    <com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent.MyCustomCalendarComponent
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

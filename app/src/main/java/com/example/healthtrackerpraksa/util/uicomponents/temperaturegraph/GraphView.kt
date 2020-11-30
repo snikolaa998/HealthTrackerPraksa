@@ -1,4 +1,4 @@
-package com.example.healthtrackerpraksa.util.uicomponents
+package com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph
 
 import android.content.Context
 import android.graphics.Canvas
@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.RequiresApi
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.util.uicomponents.SizeTransformations.toDP
+import com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph.SizeTransformations.toDP
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 

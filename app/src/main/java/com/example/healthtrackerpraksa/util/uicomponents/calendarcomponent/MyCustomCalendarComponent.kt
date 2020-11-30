@@ -1,4 +1,4 @@
-package com.example.healthtrackerpraksa.util
+package com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.util.uicomponents.CalendarAdapter
 import kotlinx.android.synthetic.main.my_custom_calendar.view.*
 
 class MyCustomCalendarComponent @JvmOverloads constructor(

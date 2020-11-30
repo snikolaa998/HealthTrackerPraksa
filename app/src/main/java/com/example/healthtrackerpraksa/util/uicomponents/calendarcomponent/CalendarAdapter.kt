@@ -1,13 +1,11 @@
-package com.example.healthtrackerpraksa.util.uicomponents
+package com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.util.MonthPage
 
 class CalendarAdapter : RecyclerView.Adapter<CalendarViewHolder>() {
 
