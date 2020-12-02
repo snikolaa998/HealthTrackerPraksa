@@ -2,32 +2,25 @@ package com.example.healthtrackerpraksa.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.adapters.BloodPressureAdapter
 import com.example.healthtrackerpraksa.interfaces.DataIsReady
 import com.example.healthtrackerpraksa.repository.Repository
+import com.example.healthtrackerpraksa.ui.fragments.BloodPressureFragment
 import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModel
 import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.lang.StringBuilder
 
 class MainActivity() : AppCompatActivity(), DataIsReady {
-
-    private lateinit var bloodPressureViewModel: BloodPressureViewModel
-    private lateinit var bloodPressureViewModelFactory: BloodPressureViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +28,10 @@ class MainActivity() : AppCompatActivity(), DataIsReady {
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_graph_host) as NavHostFragment? ?: return
         val navController = host.navController
         val addButton = findViewById<FloatingActionButton>(R.id.floating_add_btn)
+
         addButton.setOnClickListener {
-            getCurrentFragment()
+            showBloodPressurePopUp()
+            Toast.makeText(this, "MainActivity", Toast.LENGTH_SHORT).show()
         }
         setupBottomNavMenu(navController)
     }
@@ -49,7 +44,7 @@ class MainActivity() : AppCompatActivity(), DataIsReady {
         return item.onNavDestinationSelected(findNavController(R.id.nav_graph_host))
                 || super.onOptionsItemSelected(item)
     }
-    private fun getCurrentFragment() {
+    private fun showBloodPressurePopUp() {
         val currentFragment = findNavController(R.id.nav_graph_host).currentDestination
         when(currentFragment?.label) {
             "fragment_blood_pressure" -> {
@@ -59,10 +54,22 @@ class MainActivity() : AppCompatActivity(), DataIsReady {
         }
     }
 
+    @Suppress("UNCHECKED_CAST")
+    fun <F : Fragment> AppCompatActivity.getFragment(fragmentClass: Class<F>): F? {
+        val navHostFragment = this.supportFragmentManager.fragments.first() as NavHostFragment
+
+        navHostFragment.childFragmentManager.fragments.forEach {
+            if (fragmentClass.isAssignableFrom(it.javaClass)) {
+                return it as F
+            }
+        }
+        return null
+    }
+
     override fun dataIsReady(bloodPressure: com.example.healthtrackerpraksa.persistence.model.BloodPressure) {
-        val repo = Repository(application)
-        bloodPressureViewModelFactory = BloodPressureViewModelFactory(repo)
-        bloodPressureViewModel = ViewModelProvider(this, bloodPressureViewModelFactory).get(BloodPressureViewModel::class.java)
-        bloodPressureViewModel.insert(bloodPressure)
+        var fragment = getFragment(BloodPressureFragment::class.java)
+        if (fragment != null) {
+            (fragment as BloodPressureFragment).insert(bloodPressure)
+        }
     }
 }

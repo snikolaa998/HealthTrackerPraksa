@@ -1,22 +1,30 @@
 package com.example.healthtrackerpraksa.viewModels
 
-import android.content.Context
-import android.widget.Toast
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.healthtrackerpraksa.persistence.model.BloodPressure
 import com.example.healthtrackerpraksa.repository.Repository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BloodPressureViewModel(private val repository: Repository) : ViewModel() {
 
-    val allBloodPressure: LiveData<List<BloodPressure>> = repository.getBloodPressure()
+    val allBloodPressure = MutableLiveData<List<BloodPressure>>()
 
+
+    fun getBloodPresure(){
+        viewModelScope.launch(Dispatchers.IO) {
+            allBloodPressure.postValue(repository.getBloodPressure())
+        }
+    }
+    fun getBloodPresureForCurrentMonth(currentMonth: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            allBloodPressure.postValue(repository.getBloodPressure())
+        }
+    }
     fun insert(bloodPressure: BloodPressure) {
         viewModelScope.launch {
             repository.insert(bloodPressure)
+            getBloodPresure()
         }
     }
 }

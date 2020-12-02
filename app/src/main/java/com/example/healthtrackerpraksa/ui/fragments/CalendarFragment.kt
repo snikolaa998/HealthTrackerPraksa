@@ -44,29 +44,31 @@ class CalendarFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.recyclerViewCalendar)
         val repo = Repository(activity?.application!!)
-        var currentMonth = 10
+        var currentMonth = 11
         val btnNext = view.findViewById<Button>(R.id.btn_next_month)
         val btnPrevious = view.findViewById<Button>(R.id.btn_previous_month)
         val showYearMonth = view.findViewById<TextView>(R.id.tv_date_and_year_calendar)
 
         bloodPressureViewModelFactory = BloodPressureViewModelFactory(repo)
         bloodPressureViewModel = ViewModelProvider(this, bloodPressureViewModelFactory).get(BloodPressureViewModel::class.java)
+        bloodPressureViewModel.getBloodPresure()
         bloodPressureViewModel.allBloodPressure.observe(requireActivity(), androidx.lifecycle.Observer {
             for(value in it) {
                 dates.add(value.measureTime)
             }
-
         })
+
+        showCalendar(showYearMonth, currentMonth)
 
         btnNext.setOnClickListener {
             currentMonth += 1
             dates.clear()
             dayList.clear()
+            bloodPressureViewModel.getBloodPresure()
             bloodPressureViewModel.allBloodPressure.observe(requireActivity(), androidx.lifecycle.Observer {
                 for(value in it) {
                     dates.add(value.measureTime)
                 }
-
             })
             showCalendar(showYearMonth, currentMonth)
         }
@@ -75,6 +77,7 @@ class CalendarFragment : Fragment() {
             currentMonth -= 1
             dayList.clear()
             dates.clear()
+            bloodPressureViewModel.getBloodPresure()
             bloodPressureViewModel.allBloodPressure.observe(requireActivity(), androidx.lifecycle.Observer {
                 for(value in it) {
                     dates.add(value.measureTime)
@@ -84,7 +87,6 @@ class CalendarFragment : Fragment() {
             showCalendar(showYearMonth, currentMonth)
         }
 
-        showCalendar(showYearMonth, currentMonth)
     }
 
     private fun showCalendar(showDateYear: TextView, mCurrentMonth: Int) {
@@ -102,7 +104,7 @@ class CalendarFragment : Fragment() {
         for (i in dayList.size until 42) {
             dayList.add(-1)
         }
-        val adapter = CalendarAdapter(dayList, requireActivity(), dates)
+        val adapter = CalendarAdapter(dayList, requireActivity(), dates, mCurrentMonth)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireActivity(), 7)
         val simpleDateFormat = SimpleDateFormat("MMMM yyyy", Locale.getDefault())

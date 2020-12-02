@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+
+        <OnClick
+            motion:targetId="@+id/floating_add_btn"
+            motion:clickAction="toggle"/>
+       <KeyFrameSet>
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/floating_add_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:alpha="1.0"
+            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="24dp"/>
+
+        <Constraint
+            android:id="@+id/floating_add_pressure_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.0"
+            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="24dp"/>
+
+        <Constraint
+            android:id="@+id/floating_add_temperature_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.0"
+            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="24dp"/>
+
+        <Constraint
+            android:id="@+id/floating_add_sugar_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.0"
+            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="24dp"/>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/floating_add_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.0"
+            android:layout_marginBottom="70dp"
+            android:layout_marginEnd="24dp"/>
+
+        <Constraint
+            android:id="@+id/floating_add_pressure_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/floating_add_temperature_btn"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:alpha="1.0" />
+
+        <Constraint
+            android:id="@+id/floating_add_temperature_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toEndOf="@id/floating_add_pressure_btn"
+            motion:layout_constraintEnd_toStartOf="@id/floating_add_sugar_btn"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:alpha="1.0"/>
+
+        <Constraint
+            android:id="@+id/floating_add_sugar_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/floating_add_temperature_btn"
+            android:alpha="1.0" />
+    </ConstraintSet>
+</MotionScene>

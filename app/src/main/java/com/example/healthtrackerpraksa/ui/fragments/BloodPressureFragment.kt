@@ -41,13 +41,14 @@ class BloodPressureFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_blood_pressure, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val recyclerView = view?.findViewById<RecyclerView>(R.id.bloodPressureRecyclerView)
         val repo = Repository(activity?.application!!)
         val canvas = view?.findViewById<BloodPressureCanvas>(R.id.canvasPressure)
         bloodPressureViewModelFactory = BloodPressureViewModelFactory(repo)
         bloodPressureViewModel = ViewModelProvider(this, bloodPressureViewModelFactory).get(BloodPressureViewModel::class.java)
+        bloodPressureViewModel.getBloodPresure()
         bloodPressureViewModel.allBloodPressure.observe(requireActivity(), androidx.lifecycle.Observer {
             val adapter = BloodPressureAdapter(it, requireActivity())
             recyclerView?.adapter = adapter
@@ -55,4 +56,9 @@ class BloodPressureFragment : Fragment() {
             canvas?.setParameter(it)
         })
     }
+
+    fun insert(bloodPressure: BloodPressure) {
+        bloodPressureViewModel.insert(bloodPressure)
+    }
+
 }

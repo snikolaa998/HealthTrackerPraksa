@@ -15,7 +15,7 @@ interface IHealthStatusDao {
     fun getAllTemperatures(): LiveData<List<Temperature>>
 
     @Query("Select * from blood_pressure_table")
-    fun getAllBloodPressure(): LiveData<List<BloodPressure>>
+    fun getAllBloodPressure(): List<BloodPressure>
 
     @Query("Select * from blood_sugar_table")
     fun getAllBloodSugar(): LiveData<List<BloodSugar>>
