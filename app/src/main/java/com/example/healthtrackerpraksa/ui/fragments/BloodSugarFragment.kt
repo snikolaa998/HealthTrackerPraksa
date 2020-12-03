@@ -17,12 +17,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-
 class BloodSugarFragment : Fragment() {
     private lateinit var mPreferences: SharedPreferences
     override fun onCreateView(
@@ -39,6 +33,7 @@ class BloodSugarFragment : Fragment() {
         val userName = mPreferences.getString("name", "noValue")
         val userLastName = mPreferences.getString("lastName", "noValue")
         val userPhone = mPreferences.getString("phone", "noValue")
-        Toast.makeText(requireContext(), "Name: $userName, LastName: $userLastName, Phone: $userPhone", Toast.LENGTH_LONG).show()
+        val photo = mPreferences.getString("photoPath", "noValue")
+        Toast.makeText(requireContext(), "Photo: $photo Name: $userName, LastName: $userLastName, Phone: $userPhone", Toast.LENGTH_LONG).show()
     }
 }
