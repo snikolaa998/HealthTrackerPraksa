@@ -3,9 +3,11 @@ package com.example.healthtrackerpraksa.adapters
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
@@ -14,6 +16,7 @@ import kotlin.collections.ArrayList
 
 class CalendarHolder(view: View) : RecyclerView.ViewHolder(view) {
     val calendarItem = view.findViewById<TextView>(R.id.tv_calendar_item)
+    val imageCalendarItem = view.findViewById<ImageView>(R.id.iv_calendar_item)
 }
 
 class CalendarAdapter(private val numberList: ArrayList<Int>, private val context: Context, private val datesList: ArrayList<Date>, private val currentMonth: Int) : RecyclerView.Adapter<CalendarHolder>() {
@@ -35,10 +38,14 @@ class CalendarAdapter(private val numberList: ArrayList<Int>, private val contex
                 calendarItem.text = ""
             } else {
                 for (value in datesList) {
-                    if (numberList[position] == value.date && calendar.get(Calendar.MONTH) == value.month) {
+                    if (numberList[position] == value.date && currentMonth == value.month) {
+                        imageCalendarItem.setImageResource(R.drawable.blood_presure_small)
                         calendarItem.text = numberList[position].toString()
-                        calendarItem.setBackgroundColor(R.color.purple_700)
+                        calendarItem.setTextColor(Color.parseColor("#000000"))
+                        calendarItem.typeface = Typeface.DEFAULT_BOLD
+                        break
                     } else {
+                        imageCalendarItem.setImageResource(0)
                         calendarItem.text = numberList[position].toString()
                     }
                 }

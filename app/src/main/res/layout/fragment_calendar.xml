@@ -121,7 +121,65 @@
             app:layout_constraintTop_toBottomOf="@id/linear_layout_days_calendar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toTopOf="@id/tv_fragment_calendar_temperature"/>
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:id="@+id/iv_fragment_calendar_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/temperature_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="100dp"
+            android:layout_marginStart="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_fragment_calendar_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/iv_fragment_calendar_temperature"
+            app:layout_constraintBottom_toBottomOf="@id/iv_fragment_calendar_temperature"
+            android:layout_marginStart="16dp"
+            android:text="Temperature"/>
+
+        <ImageView
+            android:contentDescription="@string/app_name"
+            android:id="@+id/iv_fragment_calendar_blood_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/tv_fragment_calendar_temperature"
+            app:layout_constraintStart_toEndOf="@id/tv_fragment_calendar_temperature"
+            android:layout_marginStart="50dp"
+            android:src="@drawable/blood_presure_small"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blood_pressure"
+            app:layout_constraintBottom_toBottomOf="@id/iv_fragment_calendar_blood_pressure"
+            app:layout_constraintStart_toEndOf="@id/iv_fragment_calendar_blood_pressure"
+            android:layout_marginStart="16dp"/>
+
+        <ImageView
+            android:id="@+id/iv_fragment_calendar_sugar_in_blood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/iv_fragment_calendar_temperature"
+            app:layout_constraintEnd_toEndOf="@id/iv_fragment_calendar_temperature"
+            app:layout_constraintTop_toBottomOf="@id/iv_fragment_calendar_temperature"
+            android:src="@drawable/blood_sugar_small"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_fragment_calendar_sugar_blood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/iv_fragment_calendar_sugar_in_blood"
+            app:layout_constraintStart_toEndOf="@id/iv_fragment_calendar_sugar_in_blood"
+            android:text="@string/sugar_in_blood"
+            android:layout_marginStart="16dp
+"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
