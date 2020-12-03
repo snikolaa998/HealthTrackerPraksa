@@ -3,6 +3,7 @@ package com.example.healthtrackerpraksa.persistence
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.healthtrackerpraksa.MyApplication
 import com.example.healthtrackerpraksa.model.BloodPressure
 import com.example.healthtrackerpraksa.model.BloodSugar
@@ -13,6 +14,7 @@ import com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent.HEALT
     entities = [BloodPressure::class, BloodSugar::class, Temperature::class],
     version = 1, exportSchema = false
 )
+@TypeConverters(TimeConverters::class)
 abstract class HealthTrackerDb : RoomDatabase() {
 
     abstract fun healthStatusDao(): HealthTrackerDao

@@ -63,6 +63,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
 
+
     def nav_version = "2.3.1"
 
     // Kotlin

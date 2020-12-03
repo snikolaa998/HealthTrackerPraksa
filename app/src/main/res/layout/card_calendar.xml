@@ -2,16 +2,51 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
-    android:layout_weight="1">
+    android:layout_centerInParent="true">
+
+    <LinearLayout
+        android:id="@+id/ll_calendar_icons"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_icon_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_temperature_small"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_icon_blood_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_blood_pressure_small"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_icon_blood_sugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_blood_sugar_small"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
 
     <TextView
-
         android:id="@+id/tv_calendar_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="25"
+        android:layout_below="@+id/ll_calendar_icons"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:textSize="24sp" />
+        android:text="25"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
 </RelativeLayout>

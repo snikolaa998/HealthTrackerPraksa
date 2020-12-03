@@ -2,14 +2,18 @@ package com.example.healthtrackerpraksa.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.example.healthtrackerpraksa.persistence.TimeConverters
+import java.util.*
 
 
 @Entity(tableName = "temperature_table")
 data class Temperature(
 
-    val temperatureValue: Int,
-    val timeWhenMeasured: Int,
-    val note: String
+    var temperatureValue: String,
+
+    var timeWhenMeasured: Date,
+    var note: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null

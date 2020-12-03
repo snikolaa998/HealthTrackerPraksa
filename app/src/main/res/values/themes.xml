@@ -16,11 +16,8 @@
 
 
     <style name="MyCustomTextTheme" parent="Theme.HealthTrackerPraksa">
-
         <item name="android:layout_marginTop">16dp</item>
-
     </style>
-
 
     <style name="MyDialogTheme" parent="Theme.AppCompat.DayNight.Dialog" />
 
@@ -40,8 +37,6 @@
 
     <style name="NumberPickerStyle">
         <item name="android:textSize">22dp</item>
-
-
         <item name="android:textColorPrimary">@color/design_default_color_primary</item>
         <item name="android:textColor">@color/design_default_color_primary</item>
         <item name="android:colorControlNormal" >@color/black</item>

@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.healthtrackerpraksa.R
+import com.example.healthtrackerpraksa.model.Temperature
 import kotlinx.android.synthetic.main.my_custom_calendar.view.*
+import java.util.*
 
 class MyCustomCalendarComponent @JvmOverloads constructor(
     context: Context,
@@ -15,26 +17,43 @@ class MyCustomCalendarComponent @JvmOverloads constructor(
     defStyleRes: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    var calendarAdapter = CalendarAdapter()
+    private val monthPage = MonthPage()
+    private val calendarAdapter = CalendarAdapter(monthPage)
+    private val calendar = monthPage.getMonth()
+    private var onChangeMonthButtonClicked: IOnChangeMonthButtonClickedListener? = null
 
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.my_custom_calendar, this)
         rv_calendar_preview.layoutManager = GridLayoutManager(context, 7)
         rv_calendar_preview.adapter = calendarAdapter
+        tv_date_label.text = monthPage.getMonthNameInfo()
 
         iv_arrow_previous.setOnClickListener {
-            calendarAdapter.testPage.previousMonth()
-            calendarAdapter.notifyDataSetChanged()
-            tv_date_label.text = calendarAdapter.testPage.getMonth()
-
+            monthPage.previousMonth()
+            tv_date_label.text = monthPage.getMonthNameInfo()
+            onChangeMonthButtonClicked?.onChangeButtonClicked(calendar)
         }
 
         iv_arrow_next.setOnClickListener {
-            calendarAdapter.testPage.nextMonth()
-            calendarAdapter.notifyDataSetChanged()
-            tv_date_label.text = calendarAdapter.testPage.getMonth()
+            monthPage.nextMonth()
+            tv_date_label.text = monthPage.getMonthNameInfo()
+            onChangeMonthButtonClicked?.onChangeButtonClicked(calendar)
         }
-
     }
+
+    fun setOnPreviousButtonClicked(onPreviousButtonListener: IOnChangeMonthButtonClickedListener) {
+        onChangeMonthButtonClicked = onPreviousButtonListener
+    }
+
+    fun updateData(list: List<Temperature>) {
+        monthPage.updateData(list)
+        calendarAdapter.notifyDataSetChanged()
+    }
+
 }
+
+interface IOnChangeMonthButtonClickedListener {
+    fun onChangeButtonClicked(calendar: Calendar)
+}
+

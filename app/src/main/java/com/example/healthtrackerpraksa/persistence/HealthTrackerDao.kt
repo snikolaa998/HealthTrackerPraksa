@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.healthtrackerpraksa.model.Temperature
+import java.util.*
 
 @Dao
 interface HealthTrackerDao {
@@ -17,6 +18,10 @@ interface HealthTrackerDao {
 //
 //    @Query("Select * from blood_sugar_table")
 //    fun getAllBloodSugar(): LiveData<List<BloodSugar>>
+
+    @Query("Select * from temperature_table where timeWhenMeasured between :date1 and :date2")
+     suspend fun getSpecificDates(date1: Date, date2: Date): List<Temperature>
+
 
     @Insert
     suspend fun insertTemperature(temperature: Temperature)

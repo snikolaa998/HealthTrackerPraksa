@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.healthtrackerpraksa.model.Temperature
 import com.example.healthtrackerpraksa.repository.HealthTrackerRepository
 import kotlinx.coroutines.launch
+import java.util.*
 
 class HealthTrackerViewModel() : ViewModel() {
 
@@ -19,6 +20,10 @@ class HealthTrackerViewModel() : ViewModel() {
 
     fun getAllTemperatures(): LiveData<List<Temperature>> {
        return repository.getAllTemperatures()
+    }
+
+    suspend fun getSpecificTemperatures(dateMin: Date, dateMax: Date): List<Temperature>{
+        return repository.getSpecificTemperatures(dateMin, dateMax)
     }
 
 }
