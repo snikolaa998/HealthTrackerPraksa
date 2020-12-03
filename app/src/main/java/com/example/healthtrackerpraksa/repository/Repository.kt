@@ -21,7 +21,7 @@ class Repository(application: Application) {
         healthStatusDao?.insertBloodPressure(bloodPressure)
     }
 
-    fun getBloodPressure(): LiveData<List<BloodPressure>>{
+    suspend fun getBloodPressure(): List<BloodPressure>{
         return healthStatusDao?.getAllBloodPressure()!!
     }
 }
