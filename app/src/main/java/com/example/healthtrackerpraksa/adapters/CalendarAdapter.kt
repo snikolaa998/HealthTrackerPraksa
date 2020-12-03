@@ -16,7 +16,7 @@ class CalendarHolder(view: View) : RecyclerView.ViewHolder(view) {
     val calendarItem = view.findViewById<TextView>(R.id.tv_calendar_item)
 }
 
-class CalendarAdapter(private val numberList: ArrayList<Int>, private val context: Context, private val datesList: ArrayList<Date>) : RecyclerView.Adapter<CalendarHolder>() {
+class CalendarAdapter(private val numberList: ArrayList<Int>, private val context: Context, private val datesList: ArrayList<Date>, private val currentMonth: Int) : RecyclerView.Adapter<CalendarHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.calendar_item, parent, false)
