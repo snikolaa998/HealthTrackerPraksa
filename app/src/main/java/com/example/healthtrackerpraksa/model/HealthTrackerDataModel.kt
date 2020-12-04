@@ -9,9 +9,7 @@ import java.util.*
 
 @Entity(tableName = "temperature_table")
 data class Temperature(
-
     var temperatureValue: String,
-
     var timeWhenMeasured: Date,
     var note: String
 ) {
@@ -32,9 +30,8 @@ data class BloodPressure(
 
 @Entity(tableName = "blood_sugar_table")
 data class BloodSugar(
-
-    val value: Int,
-    val measureTime: Int,
+    val value: String,
+    val timeWhenMeasured: Date,
     val note: String
 ) {
     @PrimaryKey(autoGenerate = true)

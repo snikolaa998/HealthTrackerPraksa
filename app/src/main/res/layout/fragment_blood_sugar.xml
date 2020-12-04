@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bloodSugarFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/bloodSugarFragment"
     tools:context=".ui.fragments.BloodSugarFragment">
 
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_blood_sugar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Blood Sugar"
-        android:textSize="32sp"/>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

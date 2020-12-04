@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.healthtrackerpraksa.R
+import com.example.healthtrackerpraksa.model.BloodSugar
 import com.example.healthtrackerpraksa.model.Temperature
 import kotlinx.android.synthetic.main.my_custom_calendar.view.*
 import java.util.*
@@ -42,15 +43,14 @@ class MyCustomCalendarComponent @JvmOverloads constructor(
         }
     }
 
-    fun setOnPreviousButtonClicked(onPreviousButtonListener: IOnChangeMonthButtonClickedListener) {
-        onChangeMonthButtonClicked = onPreviousButtonListener
-    }
-
-    fun updateData(list: List<Temperature>) {
-        monthPage.updateData(list)
+    fun updateData(tempInputHistory: List<Temperature>, bloodSugarInputHistory: List<BloodSugar>) {
+        monthPage.updateData(tempInputHistory, bloodSugarInputHistory)
         calendarAdapter.notifyDataSetChanged()
     }
 
+    fun setOnPreviousButtonClicked(onPreviousButtonListener: IOnChangeMonthButtonClickedListener) {
+        onChangeMonthButtonClicked = onPreviousButtonListener
+    }
 }
 
 interface IOnChangeMonthButtonClickedListener {

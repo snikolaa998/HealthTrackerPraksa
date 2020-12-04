@@ -30,8 +30,10 @@ class CalendarFragment : Fragment(R.layout.fragment_calendar), IOnChangeMonthBut
         dateMax.set(Calendar.DAY_OF_MONTH, dateMax.getActualMaximum(Calendar.DAY_OF_MONTH))
 
         lifecycleScope.launch {
-            val list = viewModel.getSpecificTemperatures(dateMin.time, dateMax.time)
-            calendarComponent.updateData(list)
+            val tempInputHistory = viewModel.getSpecificTemperatures(dateMin.time, dateMax.time)
+            val bloodSugarInputHistory = viewModel.getSpecificBloodSugar(dateMin.time, dateMax.time)
+
+            calendarComponent.updateData(tempInputHistory, bloodSugarInputHistory)
         }
     }
 
@@ -45,7 +47,8 @@ class CalendarFragment : Fragment(R.layout.fragment_calendar), IOnChangeMonthBut
 
         lifecycleScope.launch {
             val list = viewModel.getSpecificTemperatures(dateMin.time, dateMax.time)
-            calendarComponent.updateData(list)
+            val bloodSugarInputHistory = viewModel.getSpecificBloodSugar(dateMin.time, dateMax.time)
+            calendarComponent.updateData(list, bloodSugarInputHistory)
         }
     }
 }

@@ -13,7 +13,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.example.healthtrackerpraksa.R
+import com.example.healthtrackerpraksa.model.BloodSugar
 import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.ui.inputdialogs.BloodSugarDialog
 import com.example.healthtrackerpraksa.ui.inputdialogs.IDialogInputListener
 import com.example.healthtrackerpraksa.ui.inputdialogs.TemperatureDialog
 import com.example.healthtrackerpraksa.ui.viewmodels.HealthTrackerViewModel
@@ -61,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.bloodSugarFragment -> {
+                showBloodSugarDialog().show()
             }
 
             R.id.calendarFragment -> {
@@ -68,6 +71,14 @@ class MainActivity : AppCompatActivity() {
                 else motion_layout.transitionToStart()
             }
         }
+    }
+
+    private fun showBloodSugarDialog(): BloodSugarDialog {
+        return BloodSugarDialog(this, object: IDialogInputListener<BloodSugar>{
+            override fun onDialogValueSubmitted(value: BloodSugar) {
+                healthTrackerViewModel.insertBloodSugar(value)
+            }
+        })
     }
 
     private fun showTemperatureDialog(): TemperatureDialog {

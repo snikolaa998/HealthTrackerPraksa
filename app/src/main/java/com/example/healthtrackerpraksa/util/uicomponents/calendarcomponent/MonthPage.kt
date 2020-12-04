@@ -1,6 +1,6 @@
 package com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent
 
-import android.util.Log
+import com.example.healthtrackerpraksa.model.BloodSugar
 import com.example.healthtrackerpraksa.model.Temperature
 import java.util.*
 
@@ -10,7 +10,9 @@ class MonthPage() {
     private val calendar: Calendar = Calendar.getInstance()
     private var numOfDaysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
     val listOfDays = mutableListOf<DayOfTheWeek>()
+
     private var temperatureInputHistory = listOf<Temperature>()
+    private var bloodSugarInputHistory = listOf<BloodSugar>()
 
     private fun populateListOfDays() {
         calendar.set(Calendar.DAY_OF_MONTH, 1)
@@ -45,12 +47,29 @@ class MonthPage() {
     }
 
     private fun updateListOfDays() {
-        temperatureInputHistory.forEach {
+        val tempCalendar = Calendar.getInstance()
+
+        temperatureInputHistory.forEach { temp ->
+            tempCalendar.time = temp.timeWhenMeasured
+
+            if (listOfDays.indexOfFirst {
+                    it.dayOfTheMonth == tempCalendar.get(Calendar.DAY_OF_MONTH)
+                } != -1) {
+                listOfDays[listOfDays.indexOfFirst {
+                    it.dayOfTheMonth == tempCalendar.get(Calendar.DAY_OF_MONTH)
+                }].temperatureMeasured = true
+            }
+        }
+
+        bloodSugarInputHistory.forEach { bloodSugar ->
+            tempCalendar.time = bloodSugar.timeWhenMeasured
             if (listOfDays.indexOfFirst { dayOfTheWeek ->
-                    dayOfTheWeek.dayOfTheMonth == it.timeWhenMeasured.day
-                } != -1) listOfDays[listOfDays.indexOfFirst { dayOfTheWeek ->
-                dayOfTheWeek.dayOfTheMonth == it.timeWhenMeasured.day
-            } - 1].temperatureMeasured = true
+                    dayOfTheWeek.dayOfTheMonth == tempCalendar.get(Calendar.DAY_OF_MONTH)
+                } != -1) {
+                listOfDays[listOfDays.indexOfFirst { dayOfTheWeek ->
+                    dayOfTheWeek.dayOfTheMonth == tempCalendar.get(Calendar.DAY_OF_MONTH)
+                }].bloodPressureMeasured = true
+            }
         }
     }
 
@@ -90,8 +109,21 @@ class MonthPage() {
         return ""
     }
 
-    fun updateData(temperatureInputHistory: List<Temperature>) {
-        this.temperatureInputHistory = temperatureInputHistory
+    fun updateData(
+        temperatureInputHistory: List<Temperature>,
+        bloodSugarInputHistory: List<BloodSugar>
+    ) {
+        updateTempData(temperatureInputHistory)
+        updateBloodSugarData(bloodSugarInputHistory)
         populateAndUpdate()
+    }
+
+    private fun updateTempData(temperatureInputHistory: List<Temperature>) {
+        this.temperatureInputHistory = temperatureInputHistory
+    }
+
+    private fun updateBloodSugarData(bloodSugarInputHistory: List<BloodSugar>) {
+        this.bloodSugarInputHistory = bloodSugarInputHistory
+
     }
 }

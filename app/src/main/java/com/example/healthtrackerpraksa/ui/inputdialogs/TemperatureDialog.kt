@@ -57,7 +57,7 @@ class TemperatureDialog(
 
     private fun initTimePicker() {
         tv_time_value_input.setOnClickListener {
-            var timePickerDialog = TimePickerDialog(
+            val timePickerDialog = TimePickerDialog(
                 context,
                 AlertDialog.THEME_HOLO_LIGHT, this, 12, 0, true
             ).apply {
