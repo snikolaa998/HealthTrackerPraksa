@@ -10,6 +10,7 @@ import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.ui.fragments.adapters.TemperatureAdapter
 import com.example.healthtrackerpraksa.ui.viewmodels.HealthTrackerViewModel
 import com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph.GraphView
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class TemperatureFragment : Fragment(R.layout.fragment_temperature) {
@@ -35,7 +36,7 @@ class TemperatureFragment : Fragment(R.layout.fragment_temperature) {
                 { temperatureList ->
                     val tempAdapter = TemperatureAdapter(temperatureList)
                     temperatureRecyclerView.adapter = tempAdapter
-                    if (temperatureList.isNotEmpty()){
+                    if (temperatureList.isNotEmpty()) {
                         temperatureGraph.dataToDraw = temperatureList.reversed()
                     }
                 })
