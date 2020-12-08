@@ -1,9 +1,13 @@
 package com.example.healthtrackerpraksa.ui
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import android.widget.ToggleButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -24,6 +28,7 @@ class MainActivity() : AppCompatActivity(), DataIsReady, BloodSugarDataIsReady {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Toast.makeText(this, "Main Activity Create", Toast.LENGTH_SHORT).show()
         val host: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_graph_host) as NavHostFragment? ?: return
         val navController = host.navController
         val addButton = findViewById<FloatingActionButton>(R.id.floating_add_btn)

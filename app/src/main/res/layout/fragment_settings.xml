@@ -89,6 +89,36 @@
             tools:layout_editor_absoluteX="293dp"
             tools:layout_editor_absoluteY="78dp" />
 
+        <ToggleButton
+            android:id="@+id/bloodSugarToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Sugar on"
+            android:textOff="Sugar off"
+            app:layout_constraintEnd_toStartOf="@+id/iv_fragment_settings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ToggleButton
+            android:id="@+id/temperatureToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="Temp Off"
+            android:textOn="Temp On"
+            app:layout_constraintEnd_toStartOf="@+id/iv_fragment_settings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bloodSugarToggle" />
+
+        <ToggleButton
+            android:id="@+id/bloodPressureToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Pressure on"
+            android:textOff="Pressure off"
+            app:layout_constraintEnd_toStartOf="@+id/iv_fragment_settings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureToggle" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
