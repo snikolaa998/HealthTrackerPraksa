@@ -16,11 +16,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat
+import androidx.navigation.NavDeepLinkBuilder
 import com.bumptech.glide.Glide
 import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.receivers.BloodPressureReceiver
 import com.example.healthtrackerpraksa.receivers.BloodSugarReceiver
 import com.example.healthtrackerpraksa.receivers.TemperatureReceiver
+import com.example.healthtrackerpraksa.ui.MainActivity
 
 
 class SettingsFragment : Fragment() {
@@ -56,6 +58,11 @@ class SettingsFragment : Fragment() {
         val notifySugarPendingIntent = PendingIntent.getBroadcast(
             requireContext(), BLOOD_SUGAR_NOTIFICATION_ID, notifySugarIntent, PendingIntent.FLAG_UPDATE_CURRENT
         )
+//        val notifySugarPendingIntent = NavDeepLinkBuilder(requireContext())
+//            .setComponentName(MainActivity::class.java)
+//            .setGraph(R.navigation.nav_graph)
+//            .setDestination(R.id.bloodSugarFragment)
+//            .createPendingIntent()
 
         val notifyTemperatureIntent = Intent(requireContext(), TemperatureReceiver::class.java)
         val notifyTemperaturePendingIntent = PendingIntent.getBroadcast(
