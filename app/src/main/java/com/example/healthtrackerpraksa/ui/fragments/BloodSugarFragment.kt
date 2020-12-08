@@ -9,16 +9,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
+import com.example.healthtrackerpraksa.adapters.BloodSugarAdapter
 import com.example.healthtrackerpraksa.adapters.CalendarAdapter
+import com.example.healthtrackerpraksa.canvas.BloodSugarCanvas
+import com.example.healthtrackerpraksa.persistence.model.BloodSugar
+import com.example.healthtrackerpraksa.repository.Repository
+import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModelFactory
+import com.example.healthtrackerpraksa.viewModels.BloodSugarViewModel
+import com.example.healthtrackerpraksa.viewModels.BloodSugarViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 class BloodSugarFragment : Fragment() {
-    private lateinit var mPreferences: SharedPreferences
+
+    private lateinit var bloodSugarViewModel: BloodSugarViewModel
+    private lateinit var bloodSugarViewModelFactory: BloodSugarViewModelFactory
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,11 +41,21 @@ class BloodSugarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mPreferences = activity?.getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)!!
-        val userName = mPreferences.getString("name", "noValue")
-        val userLastName = mPreferences.getString("lastName", "noValue")
-        val userPhone = mPreferences.getString("phone", "noValue")
-        val photo = mPreferences.getString("photoPath", "noValue")
-        Toast.makeText(requireContext(), "Photo: $photo Name: $userName, LastName: $userLastName, Phone: $userPhone", Toast.LENGTH_LONG).show()
+        val repo = Repository(activity?.application!!)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewBloodSugar)
+        val canvas = view.findViewById<BloodSugarCanvas>(R.id.canvasSugar)
+        bloodSugarViewModelFactory = BloodSugarViewModelFactory(repo)
+        bloodSugarViewModel = ViewModelProvider(this, bloodSugarViewModelFactory).get(BloodSugarViewModel::class.java)
+        bloodSugarViewModel.getBloodSugar()
+        bloodSugarViewModel.allBloodSugar.observe(requireActivity(), androidx.lifecycle.Observer {
+            val adapter = BloodSugarAdapter(it, requireContext())
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(activity)
+            canvas.setParameter(it)
+        })
+    }
+    
+    fun insert(bloodSugar: BloodSugar) {
+        bloodSugarViewModel.insert(bloodSugar)
     }
 }

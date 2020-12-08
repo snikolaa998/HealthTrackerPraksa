@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import com.example.healthtrackerpraksa.persistence.HealthTrackerDb
 import com.example.healthtrackerpraksa.persistence.IHealthStatusDao
 import com.example.healthtrackerpraksa.persistence.model.BloodPressure
+import com.example.healthtrackerpraksa.persistence.model.BloodSugar
 
 class Repository(application: Application) {
     private var healthStatusDao: IHealthStatusDao?
@@ -23,5 +24,15 @@ class Repository(application: Application) {
 
     suspend fun getBloodPressure(): List<BloodPressure>{
         return healthStatusDao?.getAllBloodPressure()!!
+    }
+
+    suspend fun getBloodSugar(): List<BloodSugar> {
+        return healthStatusDao?.getAllBloodSugar()!!
+    }
+
+    @Suppress
+    @WorkerThread
+    suspend fun insert(bloodSugar: BloodSugar) {
+        healthStatusDao?.insertBloodSugar(bloodSugar)
     }
 }

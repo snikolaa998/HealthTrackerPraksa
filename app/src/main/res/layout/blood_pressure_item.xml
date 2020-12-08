@@ -22,7 +22,6 @@
         android:text="130"
         app:layout_constraintTop_toTopOf="@id/tv_lower_item_blood_pressure"
         app:layout_constraintStart_toEndOf="@id/tv_lower_item_blood_pressure"
-
         android:layout_marginStart="16dp"
         android:textSize="18sp"
         android:textColor="#000"/>

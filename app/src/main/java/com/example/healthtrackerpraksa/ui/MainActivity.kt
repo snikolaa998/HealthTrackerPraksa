@@ -5,22 +5,21 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.example.healthtrackerpraksa.R
+import com.example.healthtrackerpraksa.interfaces.BloodSugarDataIsReady
 import com.example.healthtrackerpraksa.interfaces.DataIsReady
-import com.example.healthtrackerpraksa.repository.Repository
+import com.example.healthtrackerpraksa.persistence.model.BloodSugar
 import com.example.healthtrackerpraksa.ui.fragments.BloodPressureFragment
-import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModel
-import com.example.healthtrackerpraksa.viewModels.BloodPressureViewModelFactory
+import com.example.healthtrackerpraksa.ui.fragments.BloodSugarFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class MainActivity() : AppCompatActivity(), DataIsReady {
+class MainActivity() : AppCompatActivity(), DataIsReady, BloodSugarDataIsReady {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +29,7 @@ class MainActivity() : AppCompatActivity(), DataIsReady {
         val addButton = findViewById<FloatingActionButton>(R.id.floating_add_btn)
 
         addButton.setOnClickListener {
-            showBloodPressurePopUp()
-            Toast.makeText(this, "MainActivity", Toast.LENGTH_SHORT).show()
+            showPopUp()
         }
         setupBottomNavMenu(navController)
     }
@@ -44,12 +42,16 @@ class MainActivity() : AppCompatActivity(), DataIsReady {
         return item.onNavDestinationSelected(findNavController(R.id.nav_graph_host))
                 || super.onOptionsItemSelected(item)
     }
-    private fun showBloodPressurePopUp() {
+    private fun showPopUp() {
         val currentFragment = findNavController(R.id.nav_graph_host).currentDestination
         when(currentFragment?.label) {
             "fragment_blood_pressure" -> {
                 val popUpDialog = BloodPressurePopUp(this)
                 popUpDialog.show(supportFragmentManager, "fragment_blood_pressure")
+            }
+            "fragment_blood_sugar" -> {
+                val bloodSugarPopUp = BloodSugarPopUp(this)
+                bloodSugarPopUp.show(supportFragmentManager, "fragment_blood_sugar")
             }
         }
     }
@@ -70,6 +72,13 @@ class MainActivity() : AppCompatActivity(), DataIsReady {
         var fragment = getFragment(BloodPressureFragment::class.java)
         if (fragment != null) {
             (fragment as BloodPressureFragment).insert(bloodPressure)
+        }
+    }
+
+    override fun bloodSugarDataIsReady(bloodSugar: BloodSugar) {
+        var fragment = getFragment(BloodSugarFragment::class.java)
+        if (fragment != null) {
+            (fragment as BloodSugarFragment).insert(bloodSugar)
         }
     }
 }

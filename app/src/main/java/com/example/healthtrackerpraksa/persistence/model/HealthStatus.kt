@@ -23,9 +23,9 @@ data class BloodPressure(
 
 @Entity(tableName = "blood_sugar_table")
 data class BloodSugar(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int = 0,
     val value: Int,
-    val measureTime: Int,
+    val measureTime: Date,
     val note: String
 )
 
