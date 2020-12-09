@@ -13,4 +13,5 @@
     <string name="save">Save</string>
     <string name="add_blood_sugar">Add Blood Sugar</string>
     <string name="add_blood_pressure">Add Blood Pressure</string>
+    <string name="current_status">Current Status:</string>
 </resources>

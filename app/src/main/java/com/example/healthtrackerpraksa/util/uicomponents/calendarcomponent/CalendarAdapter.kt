@@ -5,13 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
 import java.util.*
 
-class CalendarAdapter(private val monthPage: MonthPage) : RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>() {
+class CalendarAdapter(private val monthPage: MonthPage) :
+    RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>() {
 
-
+    private var onRecyclerItemClickListener: OnRecyclerItemClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
         val view =
@@ -26,6 +28,7 @@ class CalendarAdapter(private val monthPage: MonthPage) : RecyclerView.Adapter<C
             holder.temperatureIcon.visibility = day.isTempVisible()
             holder.bloodSugarIcon.visibility = day.isBloodSugarVisible()
             holder.bloodPressureIcon.visibility = day.isBloodPressureVisible()
+
         } else {
             holder.calendar.text = ""
         }
@@ -35,7 +38,12 @@ class CalendarAdapter(private val monthPage: MonthPage) : RecyclerView.Adapter<C
         return monthPage.listOfDays.size
     }
 
-    inner class CalendarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    fun setOnRecyclerClickListener(onRecyclerItemClickListener: OnRecyclerItemClickListener) {
+        this.onRecyclerItemClickListener = onRecyclerItemClickListener
+    }
+
+    inner class CalendarViewHolder(view: View) :
+        RecyclerView.ViewHolder(view) {
 
         val calendar: TextView = view.findViewById(R.id.tv_calendar_date)
         val temperatureIcon: ImageView = view.findViewById(R.id.iv_icon_temperature)
@@ -43,11 +51,14 @@ class CalendarAdapter(private val monthPage: MonthPage) : RecyclerView.Adapter<C
         val bloodSugarIcon: ImageView = view.findViewById(R.id.iv_icon_blood_sugar)
 
         init {
-            calendar.setOnClickListener {
-
+            view.setOnClickListener {
+                this@CalendarAdapter.onRecyclerItemClickListener?.onRecyclerItemClicked(monthPage.listOfDays[this.adapterPosition].dayOfTheMonth)
             }
         }
     }
 }
 
 
+interface OnRecyclerItemClickListener {
+    fun onRecyclerItemClicked(dayOfMonth: Int)
+}

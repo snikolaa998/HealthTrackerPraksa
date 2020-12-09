@@ -7,6 +7,7 @@ import androidx.room.Query
 import com.example.healthtrackerpraksa.model.BloodPressure
 import com.example.healthtrackerpraksa.model.BloodSugar
 import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.ui.viewmodels.helpers.InputHistory
 import kotlinx.coroutines.flow.Flow
 import java.util.*
 
@@ -42,6 +43,5 @@ interface HealthTrackerDao {
 
     @Query("Select * from blood_pressure_table where timeWhenMeasured between :date1 and :date2")
     fun getBloodPressureInputForMonth(date1: Date, date2: Date): Flow<List<BloodPressure>>
-
 
 }

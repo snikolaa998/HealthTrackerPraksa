@@ -1,4 +1,4 @@
-package com.example.healthtrackerpraksa.persistence
+package com.example.healthtrackerpraksa.persistence.typeconverters
 
 import androidx.room.TypeConverter
 import java.util.*

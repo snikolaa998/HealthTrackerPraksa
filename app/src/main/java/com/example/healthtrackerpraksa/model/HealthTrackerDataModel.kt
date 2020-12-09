@@ -2,8 +2,6 @@ package com.example.healthtrackerpraksa.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
-import com.example.healthtrackerpraksa.persistence.TimeConverters
 import java.util.*
 
 

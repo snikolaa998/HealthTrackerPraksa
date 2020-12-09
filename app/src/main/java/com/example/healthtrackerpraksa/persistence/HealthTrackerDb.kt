@@ -8,6 +8,7 @@ import com.example.healthtrackerpraksa.MyApplication
 import com.example.healthtrackerpraksa.model.BloodPressure
 import com.example.healthtrackerpraksa.model.BloodSugar
 import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.persistence.typeconverters.TimeConverters
 import com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent.HEALTH_TRACKER_DATABASE_NAME
 
 @Database(

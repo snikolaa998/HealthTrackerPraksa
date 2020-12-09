@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.HealthTrackerPraksa" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#285DE4</item>
+        <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryVariant">#0621A8</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

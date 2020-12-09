@@ -20,7 +20,7 @@ class MyCustomCalendarComponent @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private val monthPage = MonthPage()
-    private val calendarAdapter = CalendarAdapter(monthPage)
+    val calendarAdapter = CalendarAdapter(monthPage)
     private val calendar = monthPage.getMonth()
     private var onChangeMonthButtonClicked: IOnChangeMonthButtonClickedListener? = null
 
@@ -53,7 +53,7 @@ class MyCustomCalendarComponent @JvmOverloads constructor(
         calendarAdapter.notifyDataSetChanged()
     }
 
-    fun setOnPreviousButtonClicked(onPreviousButtonListener: IOnChangeMonthButtonClickedListener) {
+    fun setOnChangeMonthButtonClicked(onPreviousButtonListener: IOnChangeMonthButtonClickedListener) {
         onChangeMonthButtonClicked = onPreviousButtonListener
     }
 }

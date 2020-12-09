@@ -5,10 +5,62 @@
     android:id="@+id/calendarFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.CalendarFragment"
     android:background="@drawable/background_full"
-    android:paddingTop="32dp"
+    tools:context=".ui.fragments.CalendarFragment"
+
     >
+
+    <LinearLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_primary"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/current_status"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_current_status_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableLeft="@drawable/header_temperature"
+            android:drawablePadding="8dp"
+            android:text="Temperature:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_current_status_blood_sugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableLeft="@drawable/header_blood_sugar"
+            android:drawablePadding="8dp"
+            android:text="Blood Sugar:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_current_status_blood_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableLeft="@drawable/header_blood_pressure"
+            android:drawablePadding="8dp"
+            android:text="Blood Pressure:"
+            android:textSize="24sp" />
+
+
+    </LinearLayout>
 
 
     <com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent.MyCustomCalendarComponent
@@ -17,7 +69,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
