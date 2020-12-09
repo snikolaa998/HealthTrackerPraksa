@@ -12,35 +12,28 @@ class HealthTrackerViewModel() : ViewModel() {
 
     private val repository = HealthTrackerRepository()
 
-
+    // Temperature
     fun insertTemperature(temperature: Temperature) {
         viewModelScope.launch {
             repository.insertTemperature(temperature)
         }
     }
 
-    fun getAllTemperatures(): LiveData<List<Temperature>> {
-        return repository.getAllTemperatures()
-    }
-
-    suspend fun getSpecificTemperatures(dateMin: Date, dateMax: Date): List<Temperature> {
-        return repository.getSpecificTemperatureDates(dateMin, dateMax)
-    }
-
-
+    //Blood Sugar
     fun insertBloodSugar(bloodSugar: BloodSugar) {
         viewModelScope.launch {
             repository.insertBloodSugar(bloodSugar)
         }
     }
 
-    fun getAllBloodSugar(): LiveData<List<BloodSugar>> {
-        return repository.getAllBloodSugar()
+    //Blood Pressure
+    fun insertBloodPressure(bloodPressure: BloodPressure) {
+        viewModelScope.launch {
+            repository.insertBloodPressure(bloodPressure)
+        }
     }
 
-    suspend fun getSpecificBloodSugar(dateMin: Date, dateMax: Date): List<BloodSugar> {
-        return repository.getSpecificBloodSugarDates(dateMin, dateMax)
-    }
+
 }
 
 

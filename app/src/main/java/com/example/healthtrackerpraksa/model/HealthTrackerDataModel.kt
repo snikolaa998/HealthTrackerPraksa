@@ -11,7 +11,8 @@ import java.util.*
 data class Temperature(
     var temperatureValue: String,
     var timeWhenMeasured: Date,
-    var note: String
+    var note: String,
+    var unitOfMeasure: Char
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
@@ -20,8 +21,9 @@ data class Temperature(
 @Entity(tableName = "blood_pressure_table")
 data class BloodPressure(
 
-    val value: Int,
-    val measureTime: Int,
+    val valueUpper: String,
+    val valueLower: String,
+    val timeWhenMeasured: Date,
     val note: String
 ) {
     @PrimaryKey(autoGenerate = true)

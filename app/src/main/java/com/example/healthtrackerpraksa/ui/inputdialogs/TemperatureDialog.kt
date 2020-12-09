@@ -7,6 +7,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.RadioGroup
 import android.widget.TimePicker
 import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.model.Temperature
@@ -19,14 +20,18 @@ class TemperatureDialog(
     context: Context,
     private val listener: IDialogInputListener<Temperature>
 ) :
-    Dialog(context, R.style.MyDialogTheme2), TimePickerDialog.OnTimeSetListener {
+    Dialog(context, R.style.MyDialogTheme2), TimePickerDialog.OnTimeSetListener,
+    RadioGroup.OnCheckedChangeListener {
 
     private val calendar: Calendar = Calendar.getInstance()
+    private var unitOfMeasure: Char = 'C'
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_temperature)
+
+        radioGroup.setOnCheckedChangeListener(this)
 
         initSaveButton()
         initCancelButton()
@@ -44,11 +49,13 @@ class TemperatureDialog(
     private fun initSaveButton() {
         val saveButton = findViewById<Button>(R.id.btn_save_temp_input)
         saveButton.setOnClickListener {
+
             listener.onDialogValueSubmitted(
                 Temperature(
                     et_temp_value_input.text.toString(),
                     calendar.time,
-                    et_note_value_input.text.toString()
+                    et_note_value_input.text.toString(),
+                    unitOfMeasure
                 )
             )
             dismiss()
@@ -94,6 +101,13 @@ class TemperatureDialog(
         calendar.apply {
             set(Calendar.HOUR, hour)
             set(Calendar.MINUTE, minute)
+        }
+    }
+
+    override fun onCheckedChanged(group: RadioGroup?, buttonId: Int) {
+        when (buttonId) {
+            R.id.rb_celsius -> unitOfMeasure = 'C'
+            R.id.rb_fahrenheit -> unitOfMeasure = 'F'
         }
     }
 }

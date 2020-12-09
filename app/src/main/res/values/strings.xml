@@ -11,4 +11,6 @@
     <string name="note_input">Note</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="add_blood_sugar">Add Blood Sugar</string>
+    <string name="add_blood_pressure">Add Blood Pressure</string>
 </resources>

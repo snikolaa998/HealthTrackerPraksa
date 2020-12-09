@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
         android:layout_height="wrap_content"
@@ -24,7 +25,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_blood_sugar"
+                android:text="@string/add_blood_pressure"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -41,11 +42,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <EditText
-                android:id="@+id/et_blood_sugar_value_input"
-                android:layout_width="match_parent"
+                android:id="@+id/et_blood_pressure_lower_value_input"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:hint="Lower"
                 android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/et_blood_pressure_upper_value_input"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <EditText
+                android:id="@+id/et_blood_pressure_upper_value_input"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Upper"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -57,10 +69,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/time_and_date"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_blood_sugar_value_input" />
+                app:layout_constraintTop_toBottomOf="@+id/et_blood_pressure_lower_value_input" />
 
             <TextView
-                android:id="@+id/tv_blood_sugar_date_value_input"
+                android:id="@+id/tv_blood_pressure_date_value_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -70,7 +82,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
-                android:id="@+id/tv_blood_sugar_time_value_input"
+                android:id="@+id/tv_blood_pressure_time_value_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -78,7 +90,7 @@
                 android:text="21 : 30"
                 android:textSize="24sp"
                 android:timePickerMode="spinner"
-                app:layout_constraintStart_toEndOf="@+id/tv_blood_sugar_date_value_input"
+                app:layout_constraintStart_toEndOf="@+id/tv_blood_pressure_date_value_input"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
@@ -89,10 +101,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/note_input"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_blood_sugar_date_value_input" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_blood_pressure_date_value_input" />
 
             <EditText
-                android:id="@+id/et_blood_sugar_note_value_input"
+                android:id="@+id/et_blood_pressure_note_value_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -100,27 +112,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <Button
-                android:id="@+id/btn_blood_sugar_cancel_temp_input"
+                android:id="@+id/btn_blood_pressure_cancel_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="@string/cancel"
-                app:layout_constraintEnd_toStartOf="@+id/btn_blood_sugar_save_temp_input"
-                app:layout_constraintTop_toBottomOf="@+id/et_blood_sugar_note_value_input" />
+                app:layout_constraintEnd_toStartOf="@+id/btn_blood_pressure_save_input"
+                app:layout_constraintTop_toBottomOf="@+id/et_blood_pressure_note_value_input" />
 
             <Button
-                android:id="@+id/btn_blood_sugar_save_temp_input"
+                android:id="@+id/btn_blood_pressure_save_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="@string/save"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_blood_sugar_note_value_input" />
+                app:layout_constraintTop_toBottomOf="@+id/et_blood_pressure_note_value_input" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
-
 </RelativeLayout>

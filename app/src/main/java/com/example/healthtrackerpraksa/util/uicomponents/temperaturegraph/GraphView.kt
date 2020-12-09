@@ -31,13 +31,13 @@ class GraphView @JvmOverloads constructor(
     var graphLineWidth = 5f
 
     var dataToDraw = listOf(
-        Temperature("41", Date(1606393401), ""),
-        Temperature("37", Date(1606307001), ""),
-        Temperature("39", Date(1606220601), ""),
-        Temperature("36", Date(1606134201), ""),
-        Temperature("38", Date(1606047801), ""),
-        Temperature("39", Date(1605961401), ""),
-        Temperature("36", Date(1605875001), "")
+        Temperature("41", Date(1606393401), "", 'C'),
+        Temperature("37", Date(1606307001), "", 'C'),
+        Temperature("39", Date(1606220601), "", 'C'),
+        Temperature("36", Date(1606134201), "", 'C'),
+        Temperature("38", Date(1606047801), "", 'C'),
+        Temperature("39", Date(1605961401), "", 'C'),
+        Temperature("36", Date(1605875001), "", 'C')
     )
         set(value) {
             field = value

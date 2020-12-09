@@ -8,41 +8,44 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TimePicker
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.model.BloodSugar
+import com.example.healthtrackerpraksa.model.BloodPressure
 import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder
+import kotlinx.android.synthetic.main.card_blood_pressure.*
+import kotlinx.android.synthetic.main.dialog_blood_pressure.*
 import kotlinx.android.synthetic.main.dialog_blood_sugar.*
 import java.util.*
 
-
-class BloodSugarDialog(context: Context, private val inputListener: IDialogInputListener<BloodSugar>) :
-    Dialog(context, R.style.MyDialogTheme2),
-    TimePickerDialog.OnTimeSetListener {
+class BloodPressureDialog(
+    context: Context,
+    private val inputListener: IDialogInputListener<BloodPressure>
+) : Dialog(context, R.style.MyDialogTheme2), TimePickerDialog.OnTimeSetListener {
 
     private val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialog_blood_sugar)
+        setContentView(R.layout.dialog_blood_pressure)
 
-        initDatePicker()
-        initTimePicker()
-        initSaveButton()
         initCancelButton()
+        initDatePicker()
+        initSaveButton()
+        initTimePicker()
     }
 
     private fun initCancelButton() {
-        btn_blood_sugar_cancel_temp_input.setOnClickListener {
+        btn_blood_pressure_cancel_input.setOnClickListener {
             dismiss()
         }
     }
 
     private fun initSaveButton() {
-        btn_blood_sugar_save_temp_input.setOnClickListener {
+        btn_blood_pressure_save_input.setOnClickListener {
             inputListener.onDialogValueSubmitted(
-                BloodSugar(
-                    et_blood_sugar_value_input.text.toString(),
+                BloodPressure(
+                    et_blood_pressure_upper_value_input.text.toString(),
+                    et_blood_pressure_lower_value_input.text.toString(),
                     calendar.time,
-                    et_blood_sugar_note_value_input.text.toString()
+                    et_blood_pressure_note_value_input.text.toString()
                 )
             )
             dismiss()
@@ -50,7 +53,7 @@ class BloodSugarDialog(context: Context, private val inputListener: IDialogInput
     }
 
     private fun initTimePicker() {
-        tv_blood_sugar_time_value_input.setOnClickListener {
+        tv_blood_pressure_time_value_input.setOnClickListener {
             val timePickerDialog = TimePickerDialog(
                 context,
                 AlertDialog.THEME_HOLO_LIGHT, this, 12, 0, true
@@ -63,7 +66,7 @@ class BloodSugarDialog(context: Context, private val inputListener: IDialogInput
     }
 
     private fun initDatePicker() {
-        tv_blood_sugar_date_value_input.setOnClickListener {
+        tv_blood_pressure_date_value_input.setOnClickListener {
             SpinnerDatePickerDialogBuilder()
                 .context(context)
                 .defaultDate(
@@ -75,7 +78,7 @@ class BloodSugarDialog(context: Context, private val inputListener: IDialogInput
                 .callback { _, year, monthOfYear, dayOfMonth ->
                     Log.i("CALENDAR", "initDatePicker: $dayOfMonth ")
                     calendar.set(year, monthOfYear, dayOfMonth)
-                    tv_blood_sugar_date_value_input.text =
+                    tv_blood_pressure_date_value_input.text =
                         "$dayOfMonth / ${monthOfYear + 1} / $year"
                 }
                 .build()
@@ -84,7 +87,7 @@ class BloodSugarDialog(context: Context, private val inputListener: IDialogInput
     }
 
     override fun onTimeSet(view: TimePicker?, hour: Int, minute: Int) {
-        tv_blood_sugar_time_value_input.text = "$hour  :  $minute"
+        tv_blood_pressure_time_value_input.text = "$hour  :  $minute"
         calendar.apply {
             set(Calendar.HOUR, hour)
             set(Calendar.MINUTE, minute)

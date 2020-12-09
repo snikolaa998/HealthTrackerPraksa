@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.healthtrackerpraksa.R
+import com.example.healthtrackerpraksa.model.BloodPressure
 import com.example.healthtrackerpraksa.model.BloodSugar
 import com.example.healthtrackerpraksa.model.Temperature
 import kotlinx.android.synthetic.main.my_custom_calendar.view.*
@@ -43,8 +44,12 @@ class MyCustomCalendarComponent @JvmOverloads constructor(
         }
     }
 
-    fun updateData(tempInputHistory: List<Temperature>, bloodSugarInputHistory: List<BloodSugar>) {
-        monthPage.updateData(tempInputHistory, bloodSugarInputHistory)
+    fun updateData(
+        tempInputHistory: List<Temperature>,
+        bloodSugarInputHistory: List<BloodSugar>,
+        bloodPressureInputHistory: List<BloodPressure>
+    ) {
+        monthPage.updateData(tempInputHistory, bloodSugarInputHistory, bloodPressureInputHistory)
         calendarAdapter.notifyDataSetChanged()
     }
 

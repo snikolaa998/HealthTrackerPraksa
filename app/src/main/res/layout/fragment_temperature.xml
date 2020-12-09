@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/temperatureFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_temperature_scene"
     tools:context=".ui.fragments.TemperatureFragment">
 
     <com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph.GraphView
         android:id="@+id/temperature_graph"
-        android:layout_width="397dp"
-        android:layout_height="315dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:bottom_text_size="20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:number_horizontal_lines="8"
         app:number_vertical_ticks="7"
         app:side_text_size="25"
@@ -22,11 +26,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_temperature"
         android:layout_width="match_parent"
-        android:layout_height="376dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/temperature_graph"
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temperature_graph"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/card_temperature" />
 
 
-
-</RelativeLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
