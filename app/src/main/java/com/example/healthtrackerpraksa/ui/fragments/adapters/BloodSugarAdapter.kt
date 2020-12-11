@@ -1,16 +1,13 @@
 package com.example.healthtrackerpraksa.ui.fragments.adapters
 
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.model.BloodSugar
+import com.example.healthtrackerpraksa.models.BloodSugar
 import com.example.healthtrackerpraksa.util.FormatDate
-import org.w3c.dom.Text
-import java.util.zip.Inflater
 
 class BloodSugarAdapter(private val bloodSugarList: List<BloodSugar>) :
     RecyclerView.Adapter<BloodSugarViewHolder>() {

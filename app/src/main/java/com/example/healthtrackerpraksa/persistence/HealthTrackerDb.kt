@@ -5,9 +5,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.healthtrackerpraksa.MyApplication
-import com.example.healthtrackerpraksa.model.BloodPressure
-import com.example.healthtrackerpraksa.model.BloodSugar
-import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.models.BloodPressure
+import com.example.healthtrackerpraksa.models.BloodSugar
+import com.example.healthtrackerpraksa.models.Temperature
 import com.example.healthtrackerpraksa.persistence.typeconverters.TimeConverters
 import com.example.healthtrackerpraksa.util.HEALTH_TRACKER_DATABASE_NAME
 

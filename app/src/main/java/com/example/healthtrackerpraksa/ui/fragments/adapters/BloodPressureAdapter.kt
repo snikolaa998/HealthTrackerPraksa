@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.model.BloodPressure
+import com.example.healthtrackerpraksa.models.BloodPressure
 import com.example.healthtrackerpraksa.util.FormatDate
 
 

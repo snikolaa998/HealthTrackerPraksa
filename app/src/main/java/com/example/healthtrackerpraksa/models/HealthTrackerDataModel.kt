@@ -1,4 +1,4 @@
-package com.example.healthtrackerpraksa.model
+package com.example.healthtrackerpraksa.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

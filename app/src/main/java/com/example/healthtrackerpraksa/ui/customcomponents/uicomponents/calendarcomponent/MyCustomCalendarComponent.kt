@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.model.BloodPressure
-import com.example.healthtrackerpraksa.model.BloodSugar
-import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.models.BloodPressure
+import com.example.healthtrackerpraksa.models.BloodSugar
+import com.example.healthtrackerpraksa.models.Temperature
 import kotlinx.android.synthetic.main.my_custom_calendar.view.*
 import java.util.*
 

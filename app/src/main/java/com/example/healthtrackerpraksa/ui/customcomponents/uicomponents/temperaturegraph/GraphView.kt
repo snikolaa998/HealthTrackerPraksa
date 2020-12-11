@@ -8,7 +8,7 @@ import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.models.Temperature
 import com.example.healthtrackerpraksa.util.FormatDate
 import com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.temperaturegraph.SizeTransformations.toDP
 import java.util.*

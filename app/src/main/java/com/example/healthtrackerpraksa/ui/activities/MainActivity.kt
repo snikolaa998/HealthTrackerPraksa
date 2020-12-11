@@ -12,9 +12,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.model.BloodPressure
-import com.example.healthtrackerpraksa.model.BloodSugar
-import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.models.BloodPressure
+import com.example.healthtrackerpraksa.models.BloodSugar
+import com.example.healthtrackerpraksa.models.Temperature
 import com.example.healthtrackerpraksa.ui.inputdialogs.BloodPressureDialog
 import com.example.healthtrackerpraksa.ui.inputdialogs.BloodSugarDialog
 import com.example.healthtrackerpraksa.ui.inputdialogs.IDialogInputListener

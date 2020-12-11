@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.RadioGroup
 import android.widget.TimePicker
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.models.Temperature
 import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder
 import kotlinx.android.synthetic.main.dialog_temperature.*
 import java.util.*

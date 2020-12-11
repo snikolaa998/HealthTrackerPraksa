@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.ui.viewmodels.CalendarViewModel
-import com.example.healthtrackerpraksa.ui.viewmodels.helpers.InputHistory
+import com.example.healthtrackerpraksa.models.InputHistory
 import com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.calendarcomponent.IOnChangeMonthButtonClickedListener
 import com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.calendarcomponent.MyCustomCalendarComponent
 import com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.calendarcomponent.OnRecyclerItemClickListener

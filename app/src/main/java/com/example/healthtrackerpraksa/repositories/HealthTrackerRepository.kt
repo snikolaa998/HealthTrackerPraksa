@@ -1,8 +1,8 @@
 package com.example.healthtrackerpraksa.repositories
 
-import com.example.healthtrackerpraksa.model.BloodPressure
-import com.example.healthtrackerpraksa.model.BloodSugar
-import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.models.BloodPressure
+import com.example.healthtrackerpraksa.models.BloodSugar
+import com.example.healthtrackerpraksa.models.Temperature
 import com.example.healthtrackerpraksa.persistence.HealthTrackerDb
 import kotlinx.coroutines.flow.Flow
 import java.util.*

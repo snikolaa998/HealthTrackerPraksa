@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TimePicker
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.model.BloodSugar
+import com.example.healthtrackerpraksa.models.BloodSugar
 import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder
 import kotlinx.android.synthetic.main.dialog_blood_sugar.*
 import java.util.*

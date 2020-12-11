@@ -7,10 +7,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.models.Temperature
 import com.example.healthtrackerpraksa.util.FormatDate
-import kotlinx.android.synthetic.main.card_temperature.view.*
-import java.util.*
 
 class TemperatureAdapter(private val temperatureList: List<Temperature>) :
     RecyclerView.Adapter<TemperatureViewHolder>() {

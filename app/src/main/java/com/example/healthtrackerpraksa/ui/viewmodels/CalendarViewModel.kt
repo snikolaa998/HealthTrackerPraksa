@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.healthtrackerpraksa.model.BloodPressure
-import com.example.healthtrackerpraksa.model.BloodSugar
-import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.models.BloodPressure
+import com.example.healthtrackerpraksa.models.BloodSugar
+import com.example.healthtrackerpraksa.models.Temperature
 import com.example.healthtrackerpraksa.repositories.HealthTrackerRepository
-import com.example.healthtrackerpraksa.ui.viewmodels.helpers.InputHistory
+import com.example.healthtrackerpraksa.models.InputHistory
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map

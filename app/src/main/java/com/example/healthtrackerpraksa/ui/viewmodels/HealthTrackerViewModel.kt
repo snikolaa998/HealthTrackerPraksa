@@ -1,9 +1,9 @@
 package com.example.healthtrackerpraksa.ui.viewmodels
 
 import androidx.lifecycle.*
-import com.example.healthtrackerpraksa.model.BloodPressure
-import com.example.healthtrackerpraksa.model.BloodSugar
-import com.example.healthtrackerpraksa.model.Temperature
+import com.example.healthtrackerpraksa.models.BloodPressure
+import com.example.healthtrackerpraksa.models.BloodSugar
+import com.example.healthtrackerpraksa.models.Temperature
 import com.example.healthtrackerpraksa.repositories.HealthTrackerRepository
 import kotlinx.coroutines.launch
 
