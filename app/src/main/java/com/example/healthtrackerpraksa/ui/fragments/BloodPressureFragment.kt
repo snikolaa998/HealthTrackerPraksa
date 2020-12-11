@@ -21,22 +21,20 @@ class BloodPressureFragment : Fragment(R.layout.fragment_blood_pressure) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        subscribeObserver()
         bloodPressureViewModel.initBloodPressureLiveData()
 
         rv_blood_pressure.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
-
-        subscribeObserver()
     }
 
     private fun subscribeObserver() {
         bloodPressureViewModel.bloodPressureLiveData
-            .observe(viewLifecycleOwner, object : Observer<List<BloodPressure>> {
-                override fun onChanged(listBloodPressure: List<BloodPressure>?) {
+            .observe(viewLifecycleOwner,
+                { listBloodPressure ->
                     bloodPressureAdapter = BloodPressureAdapter(listBloodPressure!!)
                     rv_blood_pressure.adapter = bloodPressureAdapter
-                }
-            })
+                })
     }
 
 }

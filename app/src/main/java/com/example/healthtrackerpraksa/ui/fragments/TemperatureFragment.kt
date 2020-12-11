@@ -21,14 +21,13 @@ class TemperatureFragment : Fragment(R.layout.fragment_temperature) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        subscribeObserver()
         temperatureViewModel.initTemperatureLiveData()
 
         temperatureRecyclerView = view.findViewById(R.id.rv_temperature)
         temperatureRecyclerView.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
         temperatureGraph = view.findViewById(R.id.temperature_graph)
-
-        subscribeObserver()
     }
 
     private fun subscribeObserver() {

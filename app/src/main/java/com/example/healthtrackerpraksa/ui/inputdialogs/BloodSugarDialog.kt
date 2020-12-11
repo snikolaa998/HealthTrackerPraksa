@@ -14,8 +14,10 @@ import kotlinx.android.synthetic.main.dialog_blood_sugar.*
 import java.util.*
 
 
-class BloodSugarDialog(context: Context, private val inputListener: IDialogInputListener<BloodSugar>) :
-    Dialog(context, R.style.MyDialogTheme2),
+class BloodSugarDialog(
+    context: Context,
+    private val bloodSugarListener: (BloodSugar) -> Unit
+) : Dialog(context, R.style.MyDialogTheme2),
     TimePickerDialog.OnTimeSetListener {
 
     private val calendar = Calendar.getInstance()
@@ -38,7 +40,7 @@ class BloodSugarDialog(context: Context, private val inputListener: IDialogInput
 
     private fun initSaveButton() {
         btn_blood_sugar_save_temp_input.setOnClickListener {
-            inputListener.onDialogValueSubmitted(
+            bloodSugarListener(
                 BloodSugar(
                     et_blood_sugar_value_input.text.toString(),
                     calendar.time,

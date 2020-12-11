@@ -9,7 +9,6 @@ import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.ui.fragments.adapters.BloodSugarAdapter
 import com.example.healthtrackerpraksa.ui.viewmodels.BloodSugarViewModel
 import kotlinx.android.synthetic.main.fragment_blood_sugar.*
-import java.util.*
 
 
 class BloodSugarFragment : Fragment(R.layout.fragment_blood_sugar) {
@@ -20,12 +19,11 @@ class BloodSugarFragment : Fragment(R.layout.fragment_blood_sugar) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        subscribeObserver()
         bloodSugarViewModel.initBloodSugarLiveData()
 
         rv_blood_sugar.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
-
-        subscribeObserver()
     }
 
     private fun subscribeObserver() {

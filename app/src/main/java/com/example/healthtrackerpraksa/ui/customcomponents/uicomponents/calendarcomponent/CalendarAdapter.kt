@@ -13,7 +13,7 @@ import java.util.*
 class CalendarAdapter(private val monthPage: MonthPage) :
     RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder>() {
 
-    private var onRecyclerItemClickListener: OnRecyclerItemClickListener? = null
+    private var onRecyclerItemClicked: ((dayOfMonth: Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
         val view =
@@ -28,7 +28,6 @@ class CalendarAdapter(private val monthPage: MonthPage) :
             holder.temperatureIcon.visibility = day.isTempVisible()
             holder.bloodSugarIcon.visibility = day.isBloodSugarVisible()
             holder.bloodPressureIcon.visibility = day.isBloodPressureVisible()
-
         } else {
             holder.calendar.text = ""
         }
@@ -38,13 +37,12 @@ class CalendarAdapter(private val monthPage: MonthPage) :
         return monthPage.listOfDays.size
     }
 
-    fun setOnRecyclerClickListener(onRecyclerItemClickListener: OnRecyclerItemClickListener) {
-        this.onRecyclerItemClickListener = onRecyclerItemClickListener
+    fun setOnRecyclerClickListener(onRecyclerItemClicked: (dayOfMonth: Int) -> Unit) {
+        this.onRecyclerItemClicked = onRecyclerItemClicked
     }
 
     inner class CalendarViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
-
         val calendar: TextView = view.findViewById(R.id.tv_calendar_date)
         val temperatureIcon: ImageView = view.findViewById(R.id.iv_icon_temperature)
         val bloodPressureIcon: ImageView = view.findViewById(R.id.iv_icon_blood_pressure)
@@ -52,13 +50,9 @@ class CalendarAdapter(private val monthPage: MonthPage) :
 
         init {
             view.setOnClickListener {
-                this@CalendarAdapter.onRecyclerItemClickListener?.onRecyclerItemClicked(monthPage.listOfDays[this.adapterPosition].dayOfTheMonth)
+//                this@CalendarAdapter.onRecyclerItemClickListener?.onRecyclerItemClicked(monthPage.listOfDays[this.adapterPosition].dayOfTheMonth)
+                this@CalendarAdapter.onRecyclerItemClicked?.let { function ->  function(monthPage.listOfDays[this.adapterPosition].dayOfTheMonth) }
             }
         }
     }
-}
-
-
-interface OnRecyclerItemClickListener {
-    fun onRecyclerItemClicked(dayOfMonth: Int)
 }

@@ -36,8 +36,4 @@ class BloodSugarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val bloodSugarTimeWhenMeasured: TextView =
         view.findViewById(R.id.tv_blood_sugar_time_when_measured)
 
-    init {
-
-    }
-
 }

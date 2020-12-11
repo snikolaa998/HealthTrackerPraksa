@@ -18,7 +18,7 @@ import java.util.*
 
 class TemperatureDialog(
     context: Context,
-    private val listener: IDialogInputListener<Temperature>
+    private val tempListener: (Temperature) -> Unit
 ) :
     Dialog(context, R.style.MyDialogTheme2), TimePickerDialog.OnTimeSetListener,
     RadioGroup.OnCheckedChangeListener {
@@ -50,7 +50,7 @@ class TemperatureDialog(
         val saveButton = findViewById<Button>(R.id.btn_save_temp_input)
         saveButton.setOnClickListener {
 
-            listener.onDialogValueSubmitted(
+            tempListener(
                 Temperature(
                     et_temp_value_input.text.toString(),
                     calendar.time,

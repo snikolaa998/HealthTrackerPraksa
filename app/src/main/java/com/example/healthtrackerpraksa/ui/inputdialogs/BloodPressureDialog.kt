@@ -15,7 +15,7 @@ import java.util.*
 
 class BloodPressureDialog(
     context: Context,
-    private val inputListener: IDialogInputListener<BloodPressure>
+    private val bloodPressureListener: (BloodPressure) -> Unit
 ) : Dialog(context, R.style.MyDialogTheme2), TimePickerDialog.OnTimeSetListener {
 
     private val calendar = Calendar.getInstance()
@@ -38,7 +38,7 @@ class BloodPressureDialog(
 
     private fun initSaveButton() {
         btn_blood_pressure_save_input.setOnClickListener {
-            inputListener.onDialogValueSubmitted(
+            bloodPressureListener(
                 BloodPressure(
                     et_blood_pressure_upper_value_input.text.toString(),
                     et_blood_pressure_lower_value_input.text.toString(),

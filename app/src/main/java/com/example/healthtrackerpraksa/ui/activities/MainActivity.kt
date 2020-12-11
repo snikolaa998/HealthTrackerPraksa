@@ -12,12 +12,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.models.BloodPressure
-import com.example.healthtrackerpraksa.models.BloodSugar
-import com.example.healthtrackerpraksa.models.Temperature
 import com.example.healthtrackerpraksa.ui.inputdialogs.BloodPressureDialog
 import com.example.healthtrackerpraksa.ui.inputdialogs.BloodSugarDialog
-import com.example.healthtrackerpraksa.ui.inputdialogs.IDialogInputListener
 import com.example.healthtrackerpraksa.ui.inputdialogs.TemperatureDialog
 import com.example.healthtrackerpraksa.ui.viewmodels.HealthTrackerViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -76,29 +72,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showBloodPressureDialog(): BloodPressureDialog {
-        return BloodPressureDialog(this, object : IDialogInputListener<BloodPressure>{
-            override fun onDialogValueSubmitted(value: BloodPressure) {
-                healthTrackerViewModel.insertBloodPressure(value)
-            }
-        })
+        return BloodPressureDialog(this) { bloodPressure ->
+            healthTrackerViewModel.insertBloodPressure(bloodPressure)
+        }
     }
 
     private fun showBloodSugarDialog(): BloodSugarDialog {
-        return BloodSugarDialog(this, object : IDialogInputListener<BloodSugar> {
-            override fun onDialogValueSubmitted(value: BloodSugar) {
-                healthTrackerViewModel.insertBloodSugar(value)
-            }
-        })
+        return BloodSugarDialog(this) { bloodSugar ->
+            healthTrackerViewModel.insertBloodSugar(bloodSugar)
+        }
     }
 
     private fun showTemperatureDialog(): TemperatureDialog {
-        return TemperatureDialog(
-            this, object : IDialogInputListener<Temperature> {
-                override fun onDialogValueSubmitted(value: Temperature) {
-                    healthTrackerViewModel.insertTemperature(value)
-                }
-            }
-        )
+        return TemperatureDialog(this) { temperature ->
+            healthTrackerViewModel.insertTemperature(temperature)
+        }
     }
 
     private fun initCalendarDialogButtons() {
@@ -122,7 +110,6 @@ class MainActivity : AppCompatActivity() {
         return item.onNavDestinationSelected(findNavController(R.id.nav_graph_host))
                 || super.onOptionsItemSelected(item)
     }
-
 }
 
 
