@@ -1,4 +1,4 @@
-package com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph
+package com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.temperaturegraph
 
 import android.content.Context
 import android.graphics.Canvas
@@ -10,7 +10,7 @@ import android.view.View
 import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.model.Temperature
 import com.example.healthtrackerpraksa.util.FormatDate
-import com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph.SizeTransformations.toDP
+import com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.temperaturegraph.SizeTransformations.toDP
 import java.util.*
 
 class GraphView @JvmOverloads constructor(

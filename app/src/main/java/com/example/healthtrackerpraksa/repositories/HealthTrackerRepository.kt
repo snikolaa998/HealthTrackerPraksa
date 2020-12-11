@@ -1,4 +1,4 @@
-package com.example.healthtrackerpraksa.repository
+package com.example.healthtrackerpraksa.repositories
 
 import com.example.healthtrackerpraksa.model.BloodPressure
 import com.example.healthtrackerpraksa.model.BloodSugar

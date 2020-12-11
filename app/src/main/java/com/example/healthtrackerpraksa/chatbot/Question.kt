@@ -1,16 +1,17 @@
 package com.example.healthtrackerpraksa.chatbot
 
 class Question
-    (
-    val id: String,
-    val value: String,
-    val answers: List<Answer>
+@JvmOverloads constructor(
+    val id: String = "",
+    val value: String = "",
+    val answers:List<Answer>  = listOf()
 ) {
-    val answersHashMap = HashMap<String, Answer>()
+    val answersMap = HashMap<Int, Answer>()
 
-    init {
+
+    fun initMap(){
         answers.forEach {
-            answersHashMap.put(it.id, it)
+            answersMap[it.id] = it
         }
     }
-}
+ }

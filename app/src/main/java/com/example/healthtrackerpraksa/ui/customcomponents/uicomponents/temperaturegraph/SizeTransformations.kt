@@ -1,4 +1,4 @@
-package com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph
+package com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.temperaturegraph
 
 import android.content.Context
 import android.util.DisplayMetrics

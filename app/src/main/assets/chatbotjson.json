@@ -1,0 +1,83 @@
+[
+	{
+		"id": "Q0",
+		"value": "Jesi li dobro?",
+		"answers": [
+			{
+				"id": "0",
+				"value": "Ne.",
+				"nextQuestionId": "Q1"
+			},
+			{
+				"id": "1",
+				"value": "Da.",
+				"nextQuestionId": "Q2"
+			}
+		]
+	},
+		{
+		"id": "Q1",
+		"value": "Sta nije u redu?",
+		"answers": [
+			{
+				"id": "0",
+				"value": "Boli me glava.",
+				"nextQuestionId": "Q3"
+			},
+			{
+				"id": "1",
+				"value": "Ne mogu da spavam.",
+				"nextQuestionId": "Q4"
+			}
+		]
+	},
+		{
+		"id": "Q2",
+		"value": "Drago mi je! Jel mogu da uradim nesto za tebe?",
+		"answers": [
+			{
+				"id": "0",
+				"value": "Ne. Hvala!",
+				"nextQuestionId": ""
+			},
+			{
+				"id": "1",
+				"value": "Moz da ides u prodavnicu!",
+				"nextQuestionId": ""
+			}
+		]
+	},
+	{
+		"id": "Q3",
+		"value": "Oces jedan ANALgin?",
+		"answers": [
+			{
+				"id": "0",
+				"value": "Moze, moze.",
+				"nextQuestionId": ""
+			},
+			{
+				"id": "1",
+				"value": "Teraj se!",
+				"nextQuestionId": ""
+			}
+		]
+	},
+	{
+		"id": "Q4",
+		"value": "Os da te uspavam s jedan samar?",
+		"answers": [
+			{
+				"id": "0",
+				"value": "Ocu.",
+				"nextQuestionId": ""
+			},
+			{
+				"id": "1",
+				"value": "Neka, prosla me nesanica.",
+				"nextQuestionId": ""
+			}
+		]
+	}
+
+]

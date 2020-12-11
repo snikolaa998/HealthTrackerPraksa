@@ -8,9 +8,9 @@ import androidx.lifecycle.lifecycleScope
 import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.ui.viewmodels.CalendarViewModel
 import com.example.healthtrackerpraksa.ui.viewmodels.helpers.InputHistory
-import com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent.IOnChangeMonthButtonClickedListener
-import com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent.MyCustomCalendarComponent
-import com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent.OnRecyclerItemClickListener
+import com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.calendarcomponent.IOnChangeMonthButtonClickedListener
+import com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.calendarcomponent.MyCustomCalendarComponent
+import com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.calendarcomponent.OnRecyclerItemClickListener
 import kotlinx.android.synthetic.main.fragment_calendar.*
 import java.util.*
 

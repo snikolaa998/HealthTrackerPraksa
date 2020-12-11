@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph.GraphView
+    <com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.temperaturegraph.GraphView
         android:layout_width="400dp"
         android:layout_height="340dp"
 

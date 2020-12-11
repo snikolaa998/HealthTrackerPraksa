@@ -1,4 +1,4 @@
-package com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent
+package com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.calendarcomponent
 
 import android.content.Context
 import android.util.AttributeSet

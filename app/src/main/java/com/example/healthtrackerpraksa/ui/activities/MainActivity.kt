@@ -1,13 +1,11 @@
-package com.example.healthtrackerpraksa.ui
+package com.example.healthtrackerpraksa.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
 import androidx.activity.viewModels
-import androidx.core.view.isVisible
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -25,10 +23,6 @@ import com.example.healthtrackerpraksa.ui.viewmodels.HealthTrackerViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -73,6 +67,10 @@ class MainActivity : AppCompatActivity() {
             R.id.calendarFragment -> {
                 if (motion_layout.progress == 0.0f) motion_layout.transitionToEnd()
                 else motion_layout.transitionToStart()
+            }
+
+            R.id.settingsFragment -> {
+                startActivity(Intent(this, ChatBotActivity::class.java))
             }
         }
     }

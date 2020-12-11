@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.ui.fragments.adapters.TemperatureAdapter
 import com.example.healthtrackerpraksa.ui.viewmodels.TemperatureViewModel
-import com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph.GraphView
+import com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.temperaturegraph.GraphView
 
 
 class TemperatureFragment : Fragment(R.layout.fragment_temperature) {

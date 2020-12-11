@@ -5,12 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.healthtrackerpraksa.model.Temperature
-import com.example.healthtrackerpraksa.repository.HealthTrackerRepository
-import kotlinx.coroutines.Dispatchers.IO
+import com.example.healthtrackerpraksa.repositories.HealthTrackerRepository
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
-import java.util.*
 
 class TemperatureViewModel() : ViewModel() {
 
@@ -20,12 +17,6 @@ class TemperatureViewModel() : ViewModel() {
     val temperatureLiveData: LiveData<List<Temperature>>
         get() = _temperatureLiveData
 
-
-    fun insertTemperature(temperature: Temperature) {
-        viewModelScope.launch(IO) {
-            healthTrackerRepository.insertTemperature(temperature)
-        }
-    }
 
     fun initTemperatureLiveData() {
         healthTrackerRepository.getAllTemperatures().map {

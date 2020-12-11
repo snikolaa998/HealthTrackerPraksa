@@ -8,7 +8,7 @@
     app:layoutDescription="@xml/fragment_temperature_scene"
     tools:context=".ui.fragments.TemperatureFragment">
 
-    <com.example.healthtrackerpraksa.util.uicomponents.temperaturegraph.GraphView
+    <com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.temperaturegraph.GraphView
         android:id="@+id/temperature_graph"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

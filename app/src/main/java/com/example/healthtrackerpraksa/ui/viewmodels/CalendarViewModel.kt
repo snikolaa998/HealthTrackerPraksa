@@ -7,14 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.healthtrackerpraksa.model.BloodPressure
 import com.example.healthtrackerpraksa.model.BloodSugar
 import com.example.healthtrackerpraksa.model.Temperature
-import com.example.healthtrackerpraksa.repository.HealthTrackerRepository
+import com.example.healthtrackerpraksa.repositories.HealthTrackerRepository
 import com.example.healthtrackerpraksa.ui.viewmodels.helpers.InputHistory
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 import java.util.*
 
 class CalendarViewModel : ViewModel() {

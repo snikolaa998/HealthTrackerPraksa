@@ -4,9 +4,8 @@ import androidx.lifecycle.*
 import com.example.healthtrackerpraksa.model.BloodPressure
 import com.example.healthtrackerpraksa.model.BloodSugar
 import com.example.healthtrackerpraksa.model.Temperature
-import com.example.healthtrackerpraksa.repository.HealthTrackerRepository
+import com.example.healthtrackerpraksa.repositories.HealthTrackerRepository
 import kotlinx.coroutines.launch
-import java.util.*
 
 class HealthTrackerViewModel() : ViewModel() {
 

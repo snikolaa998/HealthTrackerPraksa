@@ -63,7 +63,7 @@
     </LinearLayout>
 
 
-    <com.example.healthtrackerpraksa.util.uicomponents.calendarcomponent.MyCustomCalendarComponent
+    <com.example.healthtrackerpraksa.ui.customcomponents.uicomponents.calendarcomponent.MyCustomCalendarComponent
         android:id="@+id/cc_calendar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
