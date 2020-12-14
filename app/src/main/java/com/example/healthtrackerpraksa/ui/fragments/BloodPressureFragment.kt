@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.healthtrackerpraksa.R
-import com.example.healthtrackerpraksa.models.BloodPressure
 import com.example.healthtrackerpraksa.ui.fragments.adapters.BloodPressureAdapter
 import com.example.healthtrackerpraksa.ui.viewmodels.BloodPressureViewModel
 import kotlinx.android.synthetic.main.fragment_blood_pressure.*
