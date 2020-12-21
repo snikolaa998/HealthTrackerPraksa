@@ -8,7 +8,7 @@ import com.example.healthtrackerpraksa.R
 import com.example.healthtrackerpraksa.chatbot.Conversation
 import com.example.healthtrackerpraksa.chatbot.Message
 import com.example.healthtrackerpraksa.ui.activities.adapters.chatbotadapters.ChatBotAnswersAdapter
-import com.example.healthtrackerpraksa.ui.activities.adapters.chatbotadapters.ChatBotMainAdapter
+import com.example.healthtrackerpraksa.ui.activities.adapters.chatbotadapters.answersadapter.ChatBotMainAdapter
 import com.example.healthtrackerpraksa.ui.activities.adapters.chatbotadapters.IOnAnswerClickListener
 import com.example.healthtrackerpraksa.chatbot.Question
 import com.example.healthtrackerpraksa.ui.viewmodels.ChatBotViewModel
